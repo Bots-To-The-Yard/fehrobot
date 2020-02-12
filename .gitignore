@@ -1,0 +1,8 @@
+fehproteusfirmware/
+*.s19
+*.map
+*.elf
+size\.txt
+*.o
+*.d
+.DS_Store

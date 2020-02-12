@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "name": "Proteus",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/fehproteusfirmware/Startup",
+                "${workspaceFolder}/fehproteusfirmware/Drivers",
+                "${workspaceFolder}/fehproteusfirmware/Libraries",
+                "${workspaceFolder}/fehproteusfirmware"
+            ]
+        }
+    ],
+    "version": 4
+}
