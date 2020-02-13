@@ -1,19 +1,24 @@
 #include <FEHLCD.h>
 #include <FEHIO.h>
 #include <FEHUtility.h>
+#include "Robot.h"
 
 int main(){
 
     float x, y;
 
-    LCD.Clear(FEHLCD::Black);
-    LCD.SetFontColor(FEHLCD::White);
+    // LCD.Clear(FEHLCD::Black);
+    // LCD.SetFontColor(FEHLCD::White);
 
-    while(true){
+    Robot robot({});
+
+    robot.init();
+
+    /*while(true){
         if(LCD.Touch(&x, &y)){
             LCD.WriteLine("Hello Robot!");
             Sleep(100);
         }
-    }
+    }*/
     return 0;
 }

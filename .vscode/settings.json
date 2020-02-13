@@ -1,6 +1,5 @@
 {
     "files.exclude": {
-		"**/*.files":true,
 		"**/*.includes":true,
         "**/*.o":true,
         "**/*.d":true,
@@ -18,6 +17,9 @@
 		"size.txt": true
     },
     "files.associations": {
-        "iosfwd": "cpp"
+        "*.m": "matlab",
+        "iosfwd": "cpp",
+        "__config": "cpp",
+        "__nullptr": "cpp"
     }
 }
