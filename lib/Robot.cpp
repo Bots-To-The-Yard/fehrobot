@@ -1,12 +1,10 @@
 #include "../include/Robot.h"
 
-Robot::Robot(Course* course): Module(), drivetrain() {
-  this->course = course;
+Robot::Robot(): Module(), drivetrain() {
   drivetrain = Drivetrain();
 }
 
 Robot::Robot(
-  Course* course,
   FEHIO::FEHIOPin leftPin,
   FEHIO::FEHIOPin centerPin,
   FEHIO::FEHIOPin rightPin,
@@ -17,13 +15,12 @@ Robot::Robot(
 ): Module(),
  drivetrain(leftPin, centerPin, rightPin, leftMotorPort, rightMotorPort, leftEncoderPin, rightEncoderPin)
 {
-  this->course = course;
   drivetrain = Drivetrain();
 }
 
 void Robot::init() {
   drivetrain.init();
-  rps.init();
+  // rps.init();
 }
 
 void Robot::stop() {

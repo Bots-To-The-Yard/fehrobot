@@ -1,21 +1,65 @@
 #include "../include/Program.h"
+#include "FEHUtility.h"
+#include "FEHLCD.h"
 
-Program::Program(Robot* robot) {
+Program::Program(char* name, Robot* robot, Course* course) {
+  this->name = name;
   this->robot = robot;
+  this->course = course;
+  startTime = 0;
+  lastTelemetry = 0;
+  running = false;
+}
+
+char* Program::getName() {
+  return name;
 }
 
 void Program::init() {
+  // Initilize the robot
   robot->init();
 }
 
+void Program::run() {
+  run(true);
+}
+
+void Program::run(bool telemetry) {
+  // Set the internal references
+  // Set running to true
+  running = true;
+  // Set the start time
+  startTime = TimeNow();
+  // Run the program loop
+  while (running) {
+    float time = TimeNow();
+    // Update the robot
+    robot->update(time - startTime);
+    // Write telemetry
+    if (telemetry) {
+      if ((time - lastTelemetry) > 0.25) {
+        lastTelemetry = TimeNow();
+        LCD.Clear(FEHLCD::Black);
+        // Display the program name at the top
+        LCD.WriteLine(getName());
+        LCD.WriteLine("------------------------");
+        // Have the robot write the telemetry to the screen
+        robot->telemetry();
+      }
+    }
+    // Run the program loop function
+    loop();
+  }
+}
+
+void Program::loop() {}
+
 void Program::stop() {
+  // Stop the program
+  running = false;
+  startTime = 0;
+  // Stop the robot
   robot->stop();
-}
-
-void Program::update(double time) {
-  robot->update(time);
-}
-
-void Program::telemetry() {
-  robot->telemetry();
+  // Stop task execution
+  course->stop();
 }

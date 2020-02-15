@@ -16,10 +16,6 @@ using namespace module;
 class Robot: public Module {
   private:
     /**
-     * A reference to the course object.
-     */
-    Course* course;
-    /**
      * The robot drivetrain module.
      */
     Drivetrain drivetrain;
@@ -30,14 +26,11 @@ class Robot: public Module {
   public:
     /**
      * Construct a new Robot object.
-     * 
-     * @param course A reference to the course object.
      */
-    Robot(Course* course);
+    Robot();
     /**
      * Construct a new Robot object.
      * 
-     * @param course A reference to the course object.
      * @param leftPin The left optosensor pin.
      * @param centerPin The center optosensor pin.
      * @param rightPin The right optosensor pin.
@@ -47,7 +40,6 @@ class Robot: public Module {
      * @param rightEncoderPin The right encoder pin.
      */
     Robot(
-      Course* course,
       FEHIO::FEHIOPin leftPin,
       FEHIO::FEHIOPin centerPin,
       FEHIO::FEHIOPin rightPin,

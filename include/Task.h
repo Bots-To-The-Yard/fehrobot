@@ -8,7 +8,7 @@
  * A task on the course.
  */
 class Task: public Component {
-  protected:
+  private:
     /**
      * A reference to the task waypoint.
      */
