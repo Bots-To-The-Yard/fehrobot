@@ -63,8 +63,8 @@ clean:
 run:
 	@cd $(FIRMWAREREPO) && make run TARGET=$(TARGET)
 
-doc:
+docs:
 	@doxygen Doxyfile
 
 help:
-	@open doc/index.html
+	@open docs/index.html

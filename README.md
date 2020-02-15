@@ -19,7 +19,7 @@ To build the code, first insert the Proteus SD Card and run `make` to build the 
 ## Building the Documentation
 Doxygen is required to build the documentation. Doxygen can be installed from the website or by using a package manager.
 
-To build the documentation run `make doc`.
+To build the documentation run `make docs`.
 
 To open the documentation run `make help`.
 
@@ -32,4 +32,4 @@ The `lib` folder contains implementations for all the robot library classes and 
 
 The `src` folder contains the `main.cpp` file and any team programs in the `programs` folder.
 
-The `doc` folder contains the auto-generated documentation and should not be modified.
+The `docs` folder contains the auto-generated documentation and should not be modified.
