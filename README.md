@@ -8,6 +8,8 @@ This package can be obtained by installing the `gcc-arm-none-eabi` package with 
 
 Make is also required, which is commonly installed on most systems, but can be obtained from the make website or a package manager.
 
+Doxygen is required to build the documentation. Doxygen can be installed from the website or by using a package manager.
+
 ## Installation
 To clone the code from GitHub run `git clone https://github.com/Bots-To-The-Yard/fehrobot.git`.
 
@@ -17,8 +19,6 @@ To download the Proteus firmware and compile the code run `make`.
 To build the code, first insert the Proteus SD Card and run `make` to build the code and then `make deploy` to copy the code to the SD card.
 
 ## Building the Documentation
-Doxygen is required to build the documentation. Doxygen can be installed from the website or by using a package manager.
-
 To build the documentation run `make docs`.
 
 To open the documentation run `make help`.
