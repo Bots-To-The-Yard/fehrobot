@@ -1,25 +1,26 @@
 {
     "files.exclude": {
-		"**/*.includes":true,
+	"**/*.includes":true,
         "**/*.o":true,
         "**/*.d":true,
         "**/*.git":true,
         "**/*.elf":true,
         "**/*.map":true,
         "**/*.s19":true,
-        "Makefile":true,
         ".vscode":true,
-		"*.config": true,
-		"*.creator": true,
-		"*.shared": true,
-		"*.user": true,
-		"fehproteusfirmware/**": true,
-		"size.txt": true
+	"*.config": true,
+	"*.creator": true,
+	"*.shared": true,
+	"*.user": true,
+	"fehproteusfirmware/**": true,
+	"size.txt": true
     },
     "files.associations": {
         "*.m": "matlab",
         "iosfwd": "cpp",
         "__config": "cpp",
-        "__nullptr": "cpp"
+        "__nullptr": "cpp",
+        "__locale": "cpp",
+        "ios": "cpp"
     }
 }

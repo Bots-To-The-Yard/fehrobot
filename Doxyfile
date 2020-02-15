@@ -1,0 +1,5 @@
+PROJECT_NAME = "FEH Robot Team M7"
+INPUT = include lib
+HTML_OUTPUT = doc/
+RECURSIVE = YES
+GENERATE_LATEX = NO

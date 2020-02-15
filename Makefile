@@ -62,3 +62,6 @@ clean:
 
 run:
 	@cd $(FIRMWAREREPO) && make run TARGET=$(TARGET)
+
+doc:
+	@doxygen Doxyfile
