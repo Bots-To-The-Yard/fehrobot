@@ -33,3 +33,6 @@ The `lib` folder contains implementations for all the robot library classes and 
 The `src` folder contains the `main.cpp` file and any team programs in the `programs` folder.
 
 The `docs` folder contains the auto-generated documentation and should not be modified.
+
+## Writing Programs
+New programs should be added to the `src/programs` folder. All programs should extend the Program class and implement the `loop()` method to contain the program logic/state machine. Programs can then be consturcted in the main function and added to the programs array for the menu.
