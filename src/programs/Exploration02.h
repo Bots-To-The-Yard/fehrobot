@@ -1,7 +1,7 @@
 #ifndef EXPLORATION02_H
 #define EXPLORATION02_H
 
-#include "../Program.h"
+#include "../../include/Program.h"
 
 namespace program {
   /**

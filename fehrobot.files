@@ -8,4 +8,4 @@ lib/Course.cpp
 lib/Task.cpp
 lib/tasks/Jukebox.cpp
 lib/Menu.cpp
-lib/programs/Exploration02.cpp
+src/programs/Exploration02.cpp

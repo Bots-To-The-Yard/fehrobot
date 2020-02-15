@@ -35,6 +35,8 @@ void Program::run(bool telemetry) {
     float time = TimeNow();
     // Update the robot
     robot->update(time - startTime);
+    // Update the course
+    course->update(time - startTime);
     // Write telemetry
     if (telemetry) {
       if ((time - lastTelemetry) > 0.25) {
@@ -45,6 +47,7 @@ void Program::run(bool telemetry) {
         LCD.WriteLine("------------------------");
         // Have the robot write the telemetry to the screen
         robot->telemetry();
+        course->telemetry();
       }
     }
     // Run the program loop function

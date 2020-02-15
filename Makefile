@@ -65,3 +65,6 @@ run:
 
 doc:
 	@doxygen Doxyfile
+
+help:
+	@open doc/index.html

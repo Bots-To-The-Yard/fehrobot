@@ -3,7 +3,7 @@
 #include <FEHUtility.h>
 #include "../include/Robot.h"
 #include "../include/Menu.h"
-#include "../include/programs.h"
+#include "programs/Exploration02.h"
 using namespace program;
 
 int main() {
