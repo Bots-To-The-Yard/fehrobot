@@ -10,6 +10,14 @@ Make is also required, which is commonly installed on most systems, but can be o
 
 Doxygen is required to build the documentation. Doxygen can be installed from the website or by using a package manager.
 
+### Homebrew instructions
+
+```bash
+brew tap PX4/homebrew-px4
+brew update
+brew install gcc-arm-none-eabi
+```
+
 ## Installation
 To clone the code from GitHub run `git clone https://github.com/Bots-To-The-Yard/fehrobot.git`.
 
