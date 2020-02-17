@@ -80,44 +80,45 @@ $(function() {
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">using namespace </span>module;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define DEFAULT_PERCENT 40</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_robot.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_robot.html">Robot</a>: <span class="keyword">public</span> <a class="code" href="class_module.html">Module</a> {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classmodule_1_1_drivetrain.html">Drivetrain</a> drivetrain;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classmodule_1_1_r_p_s_module.html">RPSModule</a> rps;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_robot.html">Robot</a>();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="class_robot.html">Robot</a>(</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      FEHIO::FEHIOPin leftPin,</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      FEHIO::FEHIOPin centerPin,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      FEHIO::FEHIOPin rightPin,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      FEHMotor::FEHMotorPort leftMotorPort,</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      FEHMotor::FEHMotorPort rightMotorPort,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      FEHIO::FEHIOPin leftEncoderPin,</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      FEHIO::FEHIOPin rightEncoderPin</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    );</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> init();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> stop();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> update(<span class="keywordtype">double</span> time);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> telemetry();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> followLine();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> followLine(<span class="keywordtype">float</span> percent);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">bool</span> followLine(<span class="keywordtype">float</span> percent, <span class="keywordtype">float</span> distance);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">bool</span> drive(<span class="keywordtype">float</span> distance);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">bool</span> drive(<span class="keywordtype">float</span> distance, <span class="keywordtype">float</span> percent);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">bool</span> turnLeft();</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">bool</span> turnLeft(<span class="keywordtype">float</span> percent);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">bool</span> turnRight();</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">bool</span> turnRight(<span class="keywordtype">float</span> percent);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <a class="code" href="classmodule_1_1_drivetrain.html">Drivetrain</a>* getDrivetrain();</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <a class="code" href="classmodule_1_1_r_p_s_module.html">RPSModule</a>* getRPSModule();</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;};</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define TURN_DISTANCE 5.2</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_robot.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_robot.html">Robot</a>: <span class="keyword">public</span> <a class="code" href="class_module.html">Module</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classmodule_1_1_drivetrain.html">Drivetrain</a> drivetrain;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="classmodule_1_1_r_p_s_module.html">RPSModule</a> rps;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_robot.html">Robot</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="class_robot.html">Robot</a>(</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      FEHIO::FEHIOPin leftPin,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      FEHIO::FEHIOPin centerPin,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      FEHIO::FEHIOPin rightPin,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      FEHMotor::FEHMotorPort leftMotorPort,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      FEHMotor::FEHMotorPort rightMotorPort,</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      FEHIO::FEHIOPin leftEncoderPin,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      FEHIO::FEHIOPin rightEncoderPin</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    );</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> init();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> stop();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> update(<span class="keywordtype">double</span> time);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> telemetry();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> followLine();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> followLine(<span class="keywordtype">float</span> percent);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">bool</span> followLine(<span class="keywordtype">float</span> percent, <span class="keywordtype">float</span> distance);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">bool</span> drive(<span class="keywordtype">float</span> distance);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">bool</span> drive(<span class="keywordtype">float</span> distance, <span class="keywordtype">float</span> percent);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">bool</span> turnLeft();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">bool</span> turnLeft(<span class="keywordtype">float</span> percent);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">bool</span> turnRight();</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">bool</span> turnRight(<span class="keywordtype">float</span> percent);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <a class="code" href="classmodule_1_1_drivetrain.html">Drivetrain</a>* getDrivetrain();</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <a class="code" href="classmodule_1_1_r_p_s_module.html">RPSModule</a>* getRPSModule();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;};</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassmodule_1_1_r_p_s_module_html"><div class="ttname"><a href="classmodule_1_1_r_p_s_module.html">module::RPSModule</a></div><div class="ttdef"><b>Definition:</b> RPSModule.h:11</div></div>
 <div class="ttc" id="aclassmodule_1_1_drivetrain_html"><div class="ttname"><a href="classmodule_1_1_drivetrain.html">module::Drivetrain</a></div><div class="ttdef"><b>Definition:</b> Drivetrain.h:30</div></div>
-<div class="ttc" id="aclass_robot_html"><div class="ttname"><a href="class_robot.html">Robot</a></div><div class="ttdef"><b>Definition:</b> Robot.h:16</div></div>
+<div class="ttc" id="aclass_robot_html"><div class="ttname"><a href="class_robot.html">Robot</a></div><div class="ttdef"><b>Definition:</b> Robot.h:17</div></div>
 <div class="ttc" id="aclass_module_html"><div class="ttname"><a href="class_module.html">Module</a></div><div class="ttdef"><b>Definition:</b> Module.h:9</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

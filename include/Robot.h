@@ -9,6 +9,7 @@
 using namespace module;
 
 #define DEFAULT_PERCENT 40
+#define TURN_DISTANCE 5.2
 
 /**
  * The robot.
