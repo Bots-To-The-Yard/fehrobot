@@ -8,7 +8,7 @@
 #include "Modules.h"
 using namespace module;
 
-#define DEFAULT_PERCENT 25
+#define DEFAULT_PERCENT 40
 
 /**
  * The robot.

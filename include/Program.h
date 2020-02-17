@@ -38,7 +38,7 @@ class Program {
     /**
      * The main loop method.
      */
-    virtual void loop();
+    virtual void loop() = 0;
   public:
     /**
      * Construct a new Program object

@@ -87,7 +87,7 @@ bool Robot::turnLeft() {
 }
 
 bool Robot::turnLeft(float percent) {
-  if (drivetrain.getLeftCounts() <= drivetrain.getRightCounts()) {
+  if (drivetrain.getAverageDistance() <= 5.3) {
     drivetrain.setLeftPercent(-percent);
     drivetrain.setRightPercent(percent);
     return false;
@@ -102,7 +102,7 @@ bool Robot::turnRight() {
 }
 
 bool Robot::turnRight(float percent) {
-  if (drivetrain.getRightCounts() <= drivetrain.getLeftCounts()) {
+  if (drivetrain.getAverageDistance() <= 5.3) {
     drivetrain.setLeftPercent(percent);
     drivetrain.setRightPercent(-percent);
     return false;

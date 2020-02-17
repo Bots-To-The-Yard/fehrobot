@@ -15,8 +15,8 @@ int main() {
   Exploration02 exploration02(&robot, &course);
 
   // Define the program array
-  Program programs[] = {
-    exploration02
+  Program* programs[] = {
+    &exploration02
   };
 
   // Define the menu
@@ -24,6 +24,14 @@ int main() {
 
   // Display the program selection menu
   menu.display();
+
+  // LCD.Clear(FEHLCD::Black);
+
+  // float x;
+  // float y;
+  // while (!LCD.Touch(&x, &y));
+
+  // exploration02.run();
 
   return 0;
 }

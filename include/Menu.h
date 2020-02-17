@@ -11,7 +11,7 @@ class Menu {
     /**
      * The programs to display.
      */
-    Program* programs;
+    Program** programs;
     /**
      * The active program.
      */
@@ -39,7 +39,7 @@ class Menu {
      * @param programs The programs to display.
      * @param programCount The number of programs to display.
      */
-    Menu(Program* programs, int programCount);
+    Menu(Program** programs, int programCount);
     /**
      * Display the program selection menu.
      */

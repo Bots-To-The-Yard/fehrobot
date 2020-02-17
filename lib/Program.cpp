@@ -55,8 +55,6 @@ void Program::run(bool telemetry) {
   }
 }
 
-void Program::loop() {}
-
 void Program::stop() {
   // Stop the program
   running = false;

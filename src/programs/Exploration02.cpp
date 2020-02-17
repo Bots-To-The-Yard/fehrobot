@@ -5,6 +5,12 @@ Exploration02::Exploration02(Robot* robot, Course* course): Program("Exploration
   state = 0;
 }
 
+void Exploration02::init() {
+  Program::init();
+  // Reset the state to 0
+  state = 0;
+}
+
 void Exploration02::loop() {
   switch (state) {
     case 0:
@@ -15,17 +21,17 @@ void Exploration02::loop() {
       if (robot->turnLeft(40))
         state = 2;
       break;
-    case 3:
+    case 2:
       if (robot->drive(10, 40))
+        state = 3;
+      break;
+    case 3:
+      if (robot->turnRight(60))
         state = 4;
       break;
     case 4:
-      if (robot->turnRight(60))
-        state = 5;
-      break;
-    case 5:
       if (robot->drive(4, 60))
-        state = 6;
+        state = 5;
       break;
     default:
       stop();

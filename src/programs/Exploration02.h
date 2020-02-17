@@ -21,6 +21,7 @@ namespace program {
        * @param course A reference to the course object.
        */
       Exploration02(Robot* robot, Course* course);
+      void init();
       void loop();
   };
 };
