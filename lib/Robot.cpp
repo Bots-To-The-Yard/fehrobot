@@ -11,9 +11,10 @@ Robot::Robot(
   FEHMotor::FEHMotorPort leftMotorPort,
   FEHMotor::FEHMotorPort rightMotorPort,
   FEHIO::FEHIOPin leftEncoderPin,
-  FEHIO::FEHIOPin rightEncoderPin
+  FEHIO::FEHIOPin rightEncoderPin,
+  FEHIO::FEHIOPin cdsCellPin
 ): Module(),
- drivetrain(leftPin, centerPin, rightPin, leftMotorPort, rightMotorPort, leftEncoderPin, rightEncoderPin)
+ drivetrain(leftPin, centerPin, rightPin, leftMotorPort, rightMotorPort, leftEncoderPin, rightEncoderPin, cdsCellPin)
 {
   drivetrain = Drivetrain();
 }
@@ -44,13 +45,13 @@ void Robot::followLine() {
 
 void Robot::followLine(float percent) {
   switch (drivetrain.getLineState()) {
-    case LEFT_OF_LINE:
+    case LeftOfLine:
       drivetrain.setRightPercent(0);
       break;
-    case RIGHT_OF_LINE:
+    case RightOfLine:
       drivetrain.setLeftPercent(0);
       break;
-    case ON_LINE:
+    case OnLine:
       drivetrain.setPercent(percent);
       break;
     default:

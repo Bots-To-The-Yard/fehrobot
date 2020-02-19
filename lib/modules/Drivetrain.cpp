@@ -2,8 +2,8 @@
 #include "FEHLCD.h"
 using namespace module;
 
-Drivetrain::Drivetrain(): Module(), leftLight(FEHIO::P1_0), centerLight(FEHIO::P1_1), rightLight(FEHIO::P1_2), left(FEHMotor::Motor0, 9.0), right(FEHMotor::Motor1, 9.0), leftEncoder(FEHIO::P0_0), rightEncoder(FEHIO::P0_1) {
-  lineState = NO_LINE;
+Drivetrain::Drivetrain(): Module(), leftOpto(FEHIO::P1_0), centerOpto(FEHIO::P1_1), rightOpto(FEHIO::P1_2), left(FEHMotor::Motor0, 9.0), right(FEHMotor::Motor1, 9.0), leftEncoder(FEHIO::P0_0), rightEncoder(FEHIO::P0_1), cdsCell(FEHIO::P2_1) {
+  lineState = NoLine;
 }
 
 Drivetrain::Drivetrain(
@@ -13,16 +13,21 @@ Drivetrain::Drivetrain(
   FEHMotor::FEHMotorPort leftPort,
   FEHMotor::FEHMotorPort rightPort,
   FEHIO::FEHIOPin leftEncoderPin,
-  FEHIO::FEHIOPin rightEncoderPin
-): Module(), leftLight(leftPin),
- centerLight(centerPin),
- rightLight(rightPin), 
- left(leftPort, 9.0), 
- right(rightPort, 9.0), 
- leftEncoder(leftEncoderPin), 
- rightEncoder(rightEncoderPin) 
- {
-  lineState = NO_LINE;
+  FEHIO::FEHIOPin rightEncoderPin,
+  FEHIO::FEHIOPin cdsCellPin
+): 
+  Module(), 
+  leftOpto(leftPin),
+  centerOpto(centerPin),
+  rightOpto(rightPin), 
+  left(leftPort, 9.0), 
+  right(rightPort, 9.0), 
+  leftEncoder(leftEncoderPin), 
+  rightEncoder(rightEncoderPin),
+  cdsCell(cdsCellPin)
+{
+  this->logFile = logFile;
+  lineState = NoLine;
 }
 
 void Drivetrain::init() {
@@ -31,35 +36,35 @@ void Drivetrain::init() {
 
 void Drivetrain::update(double time) {
   // Update the line state
-  if (leftLight.Value() > LEFT_VOLTAGE && centerLight.Value() > CENTER_VOLTAGE && rightLight.Value() > RIGHT_VOLTAGE) {
-    lineState = AT_LINE;
-  } else if (leftLight.Value() > LEFT_VOLTAGE) {
-    lineState = RIGHT_OF_LINE;
-  } else if (rightLight.Value() > RIGHT_VOLTAGE) {
-    lineState = LEFT_OF_LINE;
-  } else if (centerLight.Value() > CENTER_VOLTAGE) {
-    lineState = ON_LINE;
+  if (leftOpto.Value() > LEFT_VOLTAGE && centerOpto.Value() > CENTER_VOLTAGE && rightOpto.Value() > RIGHT_VOLTAGE) {
+    lineState = AtLine;
+  } else if (leftOpto.Value() > LEFT_VOLTAGE) {
+    lineState = RightOfLine;
+  } else if (rightOpto.Value() > RIGHT_VOLTAGE) {
+    lineState = LeftOfLine;
+  } else if (centerOpto.Value() > CENTER_VOLTAGE) {
+    lineState = OnLine;
   } else {
-    lineState = NO_LINE;
+    lineState = NoLine;
   }
 }
 
 void Drivetrain::telemetry() {
   // TODO: Print current encoder counts to screen
   switch (lineState) {
-    case ON_LINE: {
+    case OnLine: {
       LCD.WriteLine("Line State: ON LINE");
       break;
     }
-    case LEFT_OF_LINE: {
+    case LeftOfLine: {
       LCD.WriteLine("Line State: LEFT OF LINE");
       break;
     };
-    case RIGHT_OF_LINE: {
+    case RightOfLine: {
       LCD.WriteLine("Line State: RIGHT OF LINE");
       break;
     };
-    case AT_LINE: {
+    case AtLine: {
       LCD.WriteLine("Line State: AT LINE");
       break;
     };
@@ -71,6 +76,8 @@ void Drivetrain::telemetry() {
   LCD.WriteLine(getLeftCounts());
   LCD.WriteLine("Right Counts:");
   LCD.WriteLine(getRightCounts());
+  LCD.WriteLine("CDS Color: ");
+  LCD.WriteLine(cdsCell.Value());
 }
 
 void Drivetrain::stop() {
@@ -94,6 +101,11 @@ void Drivetrain::setRightPercent(float percent) {
 
 LineState Drivetrain::getLineState() {
   return lineState;
+}
+
+CdsColor Drivetrain::getCdsColor() {
+  // TODO: Implement CdS color detection
+  return None;
 }
 
 int Drivetrain::getLeftCounts() {

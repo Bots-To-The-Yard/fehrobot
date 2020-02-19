@@ -39,6 +39,7 @@ class Robot: public Module {
      * @param rightMotorPort The right motor port.
      * @param leftEncoderPin The left encoder pin.
      * @param rightEncoderPin The right encoder pin.
+     * @param cdsCellPin The CdS cell Pin
      */
     Robot(
       FEHIO::FEHIOPin leftPin,
@@ -47,7 +48,8 @@ class Robot: public Module {
       FEHMotor::FEHMotorPort leftMotorPort,
       FEHMotor::FEHMotorPort rightMotorPort,
       FEHIO::FEHIOPin leftEncoderPin,
-      FEHIO::FEHIOPin rightEncoderPin
+      FEHIO::FEHIOPin rightEncoderPin,
+      FEHIO::FEHIOPin cdsCellPin
     );
     void init();
     void stop();
