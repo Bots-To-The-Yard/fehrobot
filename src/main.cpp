@@ -5,6 +5,8 @@
 #include "../include/Robot.h"
 #include "../include/Menu.h"
 #include "programs/Exploration02.h"
+#include "programs/ForwardUpRamp.h"
+#include "programs/BackwardsUpRamp.h"
 using namespace program;
 
 int main() {
@@ -15,14 +17,18 @@ int main() {
 
   // Define the programs
   Exploration02 exploration02(&robot, &course);
+  ForwardUpRamp forwardUpRamp(&robot, &course);
+  BackwardsUpRamp backwardsUpRamp(&robot, &course);
 
   // Define the program array
   Program* programs[] = {
-    &exploration02
+    &exploration02,
+    &forwardUpRamp,
+    &backwardsUpRamp
   };
 
   // Define the menu
-  Menu menu(programs, 1);
+  Menu menu(programs, 3);
 
   // Display the program selection menu
   menu.display();
