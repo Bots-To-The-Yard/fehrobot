@@ -20,8 +20,13 @@ Robot::Robot(
 }
 
 void Robot::init() {
+  // Initilize with RPS enabled by default
+  init(true);
+}
+
+void Robot::init(bool enableRps) {
   drivetrain.init();
-  // rps.init();
+  if (enableRps) rps.init();
 }
 
 void Robot::stop() {

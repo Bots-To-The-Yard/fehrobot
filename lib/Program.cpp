@@ -20,6 +20,11 @@ void Program::init() {
   robot->init();
 }
 
+void Program::init(bool disableRps) {
+  // Initilize the robot
+  robot->init(disableRps);
+}
+
 void Program::run() {
   run(true);
 }

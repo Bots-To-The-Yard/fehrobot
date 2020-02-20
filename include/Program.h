@@ -44,6 +44,17 @@ class Program {
      * Construct a new Program object
      * 
      * @param robot The program name.
+     * @param robot A reference to the Robot.
+     * @param course A reference to the Course.=
+     */
+    Program(char* name, Robot* robot, Course* course);
+    /**
+     * Construct a new Program object
+     * 
+     * @param robot The program name.
+     * @param robot A reference to the Robot.
+     * @param course A reference to the Course.
+     * @param disableRps Disable the RPS.
      */
     Program(char* name, Robot* robot, Course* course);
     /**
@@ -56,6 +67,12 @@ class Program {
      * Initilize the program.
      */
     void init();
+    /**
+     * Initilize the program.
+     * 
+     * @param disableRps Disable the RPS.
+     */
+    void init(bool disableRps);
     /**
      * Run the program.
      * 

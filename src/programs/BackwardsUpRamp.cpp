@@ -6,7 +6,7 @@ BackwardsUpRamp::BackwardsUpRamp(Robot* robot, Course* course): Program("Backwar
 }
 
 void BackwardsUpRamp::init() {
-  Program::init();
+  Program::init(false);
   // Reset the state to 0
   state = 0;
 }

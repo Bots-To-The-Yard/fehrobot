@@ -6,7 +6,7 @@ DriveForward::DriveForward(Robot* robot, Course* course): Program("Forward Up Ra
 }
 
 void DriveForward::init() {
-  Program::init();
+  Program::init(false);
   // Reset the state to 0
   state = 0;
 }

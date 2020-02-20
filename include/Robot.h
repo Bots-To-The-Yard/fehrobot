@@ -56,6 +56,12 @@ class Robot: public Module {
     void update(double time);
     void telemetry();
     /**
+     * Initilize the program
+     * 
+     * @param enableRps Enable the RPS initilization screen.
+     */
+    void init(bool enableRps);
+    /**
      * Follow a black line at the default speed.
      */
     void followLine();

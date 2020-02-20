@@ -6,7 +6,7 @@ Exploration02::Exploration02(Robot* robot, Course* course): Program("Exploration
 }
 
 void Exploration02::init() {
-  Program::init();
+  Program::init(false);
   // Reset the state to 0
   state = 0;
 }
