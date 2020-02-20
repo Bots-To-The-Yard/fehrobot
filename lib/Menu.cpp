@@ -40,24 +40,27 @@ void Menu::display() {
       }
     }
     if (program != nullptr) {
-      // Display the program name
+      // Display the init button
       LCD.Clear(FEHLCD::Black);
       LCD.SetFontColor(FEHLCD::White);
       LCD.WriteLine(program->getName());
       LCD.DrawRectangle(5, 40, 310, 150);
       LCD.WriteAt("Init", 135, 72 + 40);
-      Sleep(5);
+      Sleep(6);
       // Wait for user touch to initilize the program
       while (!LCD.Touch(&x, &y));
-      // program->init();
+      // Initilize the program
+      program->init();
+      // Clear the screen and display the run button
       LCD.Clear(FEHLCD::Black);
       LCD.SetFontColor(FEHLCD::White);
       LCD.WriteLine(program->getName());
       LCD.DrawRectangle(5, 40, 310, 150);
       LCD.WriteAt("Run", 135, 72 + 40);
-      Sleep(5);
+      Sleep(6);
       // Wait for user touch to run the program
       while (!LCD.Touch(&x, &y));
+      // Run the program
       program->run();
     }
   }

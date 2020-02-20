@@ -1,8 +1,9 @@
 #ifndef DRIVETRAIN_H
 #define DRIVETRAIN_H
 
-#include "FEHMotor.h"
-#include "FEHIO.h"
+#include <FEHMotor.h>
+#include <FEHIO.h>
+#include <FEHSD.h>
 #include "../Module.h"
 
 #define WHEEL_CIRCUMFERENCE 2.5
@@ -16,11 +17,20 @@
  * The line detection state.
  */
 enum LineState {
-  NO_LINE, // No sensor detects the line
-  ON_LINE, // Center sensor detects the line
-  AT_LINE, // All sensor detect the line
-  RIGHT_OF_LINE, // Left sensor detects the line
-  LEFT_OF_LINE // Right sensor detects the line
+  NoLine, // No sensor detects the line
+  OnLine, // Center sensor detects the line
+  AtLine, // All sensor detect the line
+  RightOfLine, // Left sensor detects the line
+  LeftOfLine // Right sensor detects the line
+};
+
+/**
+ * The detected color from the CdS cell.
+ */
+enum CdsColor {
+  None, // No color is detected
+  Red, // Red is detected
+  Blue // Blue is detected
 };
 
 namespace module {
@@ -29,6 +39,10 @@ namespace module {
    */
   class Drivetrain: public Module {
     private:
+      /**
+       * The log file pointer.
+       */
+      FEHFile* logFile;
       /**
        * The left motor.
        */
@@ -52,15 +66,19 @@ namespace module {
       /**
        * The left analog optosensor.
        */
-      AnalogInputPin leftLight;
+      AnalogInputPin leftOpto;
       /**
        * The center analog optosensor.
        */
-      AnalogInputPin centerLight;
+      AnalogInputPin centerOpto;
       /**
        * The right analog optosensor.
        */
-      AnalogInputPin rightLight;
+      AnalogInputPin rightOpto;
+      /**
+       * The CdS cell
+       */
+      AnalogInputPin cdsCell;
     public:
       /**
        * Construct a new Drivetrain object.
@@ -76,6 +94,7 @@ namespace module {
        * @param rightPort The right motor port.
        * @param leftEncoderPin The left encoder pin.
        * @param rightEncoderPin The right encoder pin.
+       * @param cdsCellPin The CdS cell pin.
        */
       Drivetrain(
         FEHIO::FEHIOPin leftPin,
@@ -84,7 +103,8 @@ namespace module {
         FEHMotor::FEHMotorPort leftPort,
         FEHMotor::FEHMotorPort rightPort,
         FEHIO::FEHIOPin leftEncoderPin,
-        FEHIO::FEHIOPin rightEncoderPin
+        FEHIO::FEHIOPin rightEncoderPin,
+        FEHIO::FEHIOPin cdsCellPin
       );
       void init();
       void stop();
@@ -110,6 +130,12 @@ namespace module {
        * @return The current LineState.
        */
       LineState getLineState();
+      /**
+       * Get the detected color from the CdS cell.
+       * 
+       * @return The current CdsColor.
+       */
+      CdsColor getCdsColor();
       /**
        * Get the left encoder counts.
        * @return The encoder counts.

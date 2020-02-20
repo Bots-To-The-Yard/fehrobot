@@ -9,3 +9,5 @@ lib/Task.cpp
 lib/tasks/Jukebox.cpp
 lib/Menu.cpp
 src/programs/Exploration02.cpp
+src/programs/ForwardUpRamp.cpp
+src/programs/BackwardsUpRamp.cpp
