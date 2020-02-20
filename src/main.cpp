@@ -26,7 +26,7 @@ int main() {
   menu.display();
 
   // LCD.Clear(FEHLCD::Black);
-
+  robot.turnLeftDegree(180,DEFAULT_PERCENT);
   // float x;
   // float y;
   // while (!LCD.Touch(&x, &y));
