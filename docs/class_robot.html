@@ -111,10 +111,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a51e49fe56234ebf061d03b0a98999e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15c1f0b9087e6be48a259b8186149000"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#a15c1f0b9087e6be48a259b8186149000">turnLeft</a> (float percent)</td></tr>
 <tr class="separator:a15c1f0b9087e6be48a259b8186149000"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eb93b8a5d739b3c0e1153124fbf25b9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#a2eb93b8a5d739b3c0e1153124fbf25b9">turnLeftDegree</a> (float degree, float percent)</td></tr>
+<tr class="separator:a2eb93b8a5d739b3c0e1153124fbf25b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03e3a0d4202e4dc7d2f73b419cfdc409"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#a03e3a0d4202e4dc7d2f73b419cfdc409">turnRight</a> ()</td></tr>
 <tr class="separator:a03e3a0d4202e4dc7d2f73b419cfdc409"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62a676616efda7f166e7e29ff7039997"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#a62a676616efda7f166e7e29ff7039997">turnRight</a> (float percent)</td></tr>
 <tr class="separator:a62a676616efda7f166e7e29ff7039997"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78e8694b4fdd78010ddf955162ef9869"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#a78e8694b4fdd78010ddf955162ef9869">turnRightDegree</a> (float degree, float percent)</td></tr>
+<tr class="separator:a78e8694b4fdd78010ddf955162ef9869"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acae899af719a33af7d773f958da2d609"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmodule_1_1_drivetrain.html">Drivetrain</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#acae899af719a33af7d773f958da2d609">getDrivetrain</a> ()</td></tr>
 <tr class="separator:acae899af719a33af7d773f958da2d609"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adac6015a31276a3daa8841ea2972716a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmodule_1_1_r_p_s_module.html">RPSModule</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#adac6015a31276a3daa8841ea2972716a">getRPSModule</a> ()</td></tr>
@@ -590,6 +594,44 @@ false The robot is still turning. </dd></dl>
 
 </div>
 </div>
+<a id="a2eb93b8a5d739b3c0e1153124fbf25b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eb93b8a5d739b3c0e1153124fbf25b9">&#9670;&nbsp;</a></span>turnLeftDegree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Robot::turnLeftDegree </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>degree</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>percent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Turn the robot left.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">degree</td><td>The desired angle to turn. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true The robot has turned desired angle. </dd>
+<dd>
+false The robot is still turning. </dd></dl>
+
+</div>
+</div>
 <a id="a03e3a0d4202e4dc7d2f73b419cfdc409"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a03e3a0d4202e4dc7d2f73b419cfdc409">&#9670;&nbsp;</a></span>turnRight() <span class="overload">[1/2]</span></h2>
 
@@ -634,6 +676,44 @@ false The robot is still turning. </dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true The robot has turned. </dd>
+<dd>
+false The robot is still turning. </dd></dl>
+
+</div>
+</div>
+<a id="a78e8694b4fdd78010ddf955162ef9869"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78e8694b4fdd78010ddf955162ef9869">&#9670;&nbsp;</a></span>turnRightDegree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Robot::turnRightDegree </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>degree</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>percent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Turn the robot right.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">degree</td><td>The desired angle to turn. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true The robot has turned desired angle. </dd>
 <dd>
 false The robot is still turning. </dd></dl>
 

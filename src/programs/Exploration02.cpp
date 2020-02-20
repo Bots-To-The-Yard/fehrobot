@@ -35,6 +35,7 @@ void Exploration02::loop() {
       break;
     default:
       stop();
+      state = 0;
       break;
   }
 }

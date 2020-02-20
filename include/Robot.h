@@ -117,6 +117,14 @@ class Robot: public Module {
      */
     bool turnLeft(float percent);
     /**
+     * Turn the robot left.
+     * 
+     * @param degree The desired angle to turn.
+     * @return true The robot has turned desired angle.
+     * @return false The robot is still turning.
+     */
+    bool turnLeftDegree(float degree, float percent);
+    /**
      * Turn the right at the default speed.
      * 
      * @return true The robot has turned.
@@ -131,6 +139,14 @@ class Robot: public Module {
      * @return false The robot is still turning.
      */
     bool turnRight(float percent);
+    /**
+     * Turn the robot right.
+     * 
+     * @param degree The desired angle to turn.
+     * @return true The robot has turned desired angle.
+     * @return false The robot is still turning.
+     */
+    bool turnRightDegree(float degree, float percent);
     /**
      * Get a reference to the Drivetrain object.
      * 

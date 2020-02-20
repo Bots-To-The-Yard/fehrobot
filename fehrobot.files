@@ -13,3 +13,4 @@ lib/Module.cpp
 src/programs/Exploration02.cpp
 src/programs/DriveForward.cpp
 src/programs/BackwardsUpRamp.cpp
+src/programs/Performance01.cpp
