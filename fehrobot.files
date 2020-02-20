@@ -8,6 +8,8 @@ lib/Course.cpp
 lib/Task.cpp
 lib/tasks/Jukebox.cpp
 lib/Menu.cpp
+lib/Logger.cpp
+lib/Module.cpp
 src/programs/Exploration02.cpp
-src/programs/ForwardUpRamp.cpp
+src/programs/DriveForward.cpp
 src/programs/BackwardsUpRamp.cpp

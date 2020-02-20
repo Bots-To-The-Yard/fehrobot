@@ -27,11 +27,14 @@ class Robot: public Module {
   public:
     /**
      * Construct a new Robot object.
+     * 
+     * @param logger A reference to the logger.
      */
-    Robot();
+    Robot(Logger* logger);
     /**
      * Construct a new Robot object.
      * 
+     * @param logger A reference to the logger.
      * @param leftPin The left optosensor pin.
      * @param centerPin The center optosensor pin.
      * @param rightPin The right optosensor pin.
@@ -42,6 +45,7 @@ class Robot: public Module {
      * @param cdsCellPin The CdS cell Pin
      */
     Robot(
+      Logger* logger,
       FEHIO::FEHIOPin leftPin,
       FEHIO::FEHIOPin centerPin,
       FEHIO::FEHIOPin rightPin,

@@ -5,25 +5,28 @@
 #include "../include/Robot.h"
 #include "../include/Menu.h"
 #include "programs/Exploration02.h"
-#include "programs/ForwardUpRamp.h"
+#include "programs/DriveForward.h"
 #include "programs/BackwardsUpRamp.h"
 using namespace program;
 
 int main() {
-  FEHFile* logFile = SD.FOpen("log.txt","w");
+  // Create a new logger
+  Logger logger(Debug, Debug);
+  // Open the log file
+  logger.open("log.txt");
   // Declare the robot and the course
   Course course;
-  Robot robot;
+  Robot robot(&logger);
 
   // Define the programs
   Exploration02 exploration02(&robot, &course);
-  ForwardUpRamp forwardUpRamp(&robot, &course);
+  DriveForward driveForward(&robot, &course);
   BackwardsUpRamp backwardsUpRamp(&robot, &course);
 
   // Define the program array
   Program* programs[] = {
     &exploration02,
-    &forwardUpRamp,
+    &driveForward,
     &backwardsUpRamp
   };
 
@@ -32,9 +35,6 @@ int main() {
 
   // Display the program selection menu
   menu.display();
-
-  // Close the log file
-  SD.FClose(logFile);
 
   return 0;
 }

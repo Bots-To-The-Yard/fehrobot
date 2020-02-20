@@ -10,6 +10,12 @@ namespace module {
    */
   class RPSModule: public Module {
     public:
+      /**
+       * Construct a new RPSModule object
+       * 
+       * @param logger A reference to the logger.
+       */
+      RPSModule(Logger* logger);
       void init();
       void stop();
       void telemetry();

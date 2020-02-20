@@ -82,11 +82,14 @@ namespace module {
     public:
       /**
        * Construct a new Drivetrain object.
+       * 
+       * @param logger A reference to the logger.
        */
-      Drivetrain();
+      Drivetrain(Logger* logger);
       /**
        * Construct a new Drivetrain object.
        * 
+       * @param logger A reference to the logger.
        * @param leftPin The left optosensor pin.
        * @param centerPin The center optosensor pin.
        * @param rightPin The right optosensor pin.
@@ -97,6 +100,7 @@ namespace module {
        * @param cdsCellPin The CdS cell pin.
        */
       Drivetrain(
+        Logger* logger,
         FEHIO::FEHIOPin leftPin,
         FEHIO::FEHIOPin centerPin,
         FEHIO::FEHIOPin rightPin,

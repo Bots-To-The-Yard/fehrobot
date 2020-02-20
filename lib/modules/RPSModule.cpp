@@ -1,6 +1,8 @@
 #include "../include/modules/RPSModule.h"
 using namespace module;
 
+RPSModule::RPSModule(Logger* logger): Module(logger) {}
+
 void module::RPSModule::init() {
   RPS.InitializeTouchMenu();
 }

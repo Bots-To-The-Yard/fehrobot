@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['program_42',['Program',['../class_program.html',1,'Program'],['../class_program.html#a0eb851d3f8e560eaa40c29c3b4c95bab',1,'Program::Program(char *name, Robot *robot, Course *course)'],['../class_program.html#a0eb851d3f8e560eaa40c29c3b4c95bab',1,'Program::Program(char *name, Robot *robot, Course *course)']]]
+  ['open_48',['open',['../classutil_1_1_logger.html#a396290cda24bb60c75a0d03838dc287c',1,'util::Logger']]]
 ];

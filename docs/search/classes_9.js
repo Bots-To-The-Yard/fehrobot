@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['waypoint_74',['Waypoint',['../class_waypoint.html',1,'']]]
+  ['task_85',['Task',['../class_task.html',1,'']]]
 ];

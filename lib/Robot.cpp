@@ -1,10 +1,11 @@
 #include "../include/Robot.h"
 
-Robot::Robot(): Module(), drivetrain() {
-  drivetrain = Drivetrain();
+Robot::Robot(Logger* logger): Module(logger), drivetrain(logger), rps(logger) {
+  this->logger = logger;
 }
 
 Robot::Robot(
+  Logger* logger,
   FEHIO::FEHIOPin leftPin,
   FEHIO::FEHIOPin centerPin,
   FEHIO::FEHIOPin rightPin,
@@ -13,10 +14,7 @@ Robot::Robot(
   FEHIO::FEHIOPin leftEncoderPin,
   FEHIO::FEHIOPin rightEncoderPin,
   FEHIO::FEHIOPin cdsCellPin
-): Module(),
- drivetrain(leftPin, centerPin, rightPin, leftMotorPort, rightMotorPort, leftEncoderPin, rightEncoderPin, cdsCellPin)
-{
-  drivetrain = Drivetrain();
+): Module(logger), drivetrain(logger, leftPin, centerPin, rightPin, leftMotorPort, rightMotorPort, leftEncoderPin, rightEncoderPin, cdsCellPin), rps(logger) {
 }
 
 void Robot::init() {

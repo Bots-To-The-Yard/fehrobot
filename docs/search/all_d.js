@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['setleftpercent_49',['setLeftPercent',['../classmodule_1_1_drivetrain.html#a15198732eca95b2213faa3e015d047d4',1,'module::Drivetrain']]],
-  ['setpercent_50',['setPercent',['../classmodule_1_1_drivetrain.html#a3ec41a3befe2becf04436b72e59375cb',1,'module::Drivetrain']]],
-  ['setrightpercent_51',['setRightPercent',['../classmodule_1_1_drivetrain.html#aca86506bc825a38d8211e4d80c056389',1,'module::Drivetrain']]],
-  ['starttime_52',['startTime',['../class_program.html#ac973b4c75de21f348e3cdc2996a76cfa',1,'Program']]],
-  ['stop_53',['stop',['../class_component.html#a6871e1e4327dbe32dde28ce87fc1820e',1,'Component::stop()'],['../class_course.html#a2a8c7916e8d8d3c812635e27a428d159',1,'Course::stop()'],['../classmodule_1_1_drivetrain.html#a39779799fba07c9549fb309316c238f0',1,'module::Drivetrain::stop()'],['../classmodule_1_1_r_p_s_module.html#a1d91855cbd1588f2fb500950ad366d89',1,'module::RPSModule::stop()'],['../class_program.html#a7a35ba8f76907b04ff80eb3bf68dea96',1,'Program::stop()'],['../class_robot.html#a14dfe126ae973d3b9f81fee81a06ac22',1,'Robot::stop()'],['../classtask_1_1_jukebox.html#ac31edf32065bcfacabbbda01653fa31c',1,'task::Jukebox::stop()']]],
-  ['surface_54',['Surface',['../struct_surface.html',1,'']]]
+  ['resetencoders_50',['resetEncoders',['../classmodule_1_1_drivetrain.html#ab763bb0c071df190ee674ad8b6df2a78',1,'module::Drivetrain']]],
+  ['resetleftencoder_51',['resetLeftEncoder',['../classmodule_1_1_drivetrain.html#a148936e9680b674347ce1659a9d2070d',1,'module::Drivetrain']]],
+  ['resetrightencoder_52',['resetRightEncoder',['../classmodule_1_1_drivetrain.html#ab52b188d44069caf96758cb102208c9f',1,'module::Drivetrain']]],
+  ['robot_53',['Robot',['../class_robot.html',1,'Robot'],['../class_robot.html#ad63be9396707650c6b40cdd22e768ee3',1,'Robot::Robot(Logger *logger)'],['../class_robot.html#a2072818365c42893318a6e2339c14aae',1,'Robot::Robot(Logger *logger, FEHIO::FEHIOPin leftPin, FEHIO::FEHIOPin centerPin, FEHIO::FEHIOPin rightPin, FEHMotor::FEHMotorPort leftMotorPort, FEHMotor::FEHMotorPort rightMotorPort, FEHIO::FEHIOPin leftEncoderPin, FEHIO::FEHIOPin rightEncoderPin, FEHIO::FEHIOPin cdsCellPin)'],['../class_program.html#aedfac2c3bfba527a5eb21d14a7e6d377',1,'Program::robot()']]],
+  ['rpsmodule_54',['RPSModule',['../classmodule_1_1_r_p_s_module.html',1,'module::RPSModule'],['../classmodule_1_1_r_p_s_module.html#aa5ce9b8b483b4cc55aa090e132a018b5',1,'module::RPSModule::RPSModule()']]],
+  ['run_55',['run',['../class_program.html#a6adbc9a50861c35f3229cfb277b4afdb',1,'Program::run()'],['../class_program.html#a6a2403c0800d884c16018c3e70960938',1,'Program::run(bool telemetry)']]]
 ];

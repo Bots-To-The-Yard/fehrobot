@@ -2,11 +2,12 @@
 #include "FEHLCD.h"
 using namespace module;
 
-Drivetrain::Drivetrain(): Module(), leftOpto(FEHIO::P1_0), centerOpto(FEHIO::P1_1), rightOpto(FEHIO::P1_2), left(FEHMotor::Motor0, 9.0), right(FEHMotor::Motor1, 9.0), leftEncoder(FEHIO::P0_0), rightEncoder(FEHIO::P0_1), cdsCell(FEHIO::P2_1) {
+Drivetrain::Drivetrain(Logger* logger): Module(logger), leftOpto(FEHIO::P1_0), centerOpto(FEHIO::P1_1), rightOpto(FEHIO::P1_2), left(FEHMotor::Motor0, 9.0), right(FEHMotor::Motor1, 9.0), leftEncoder(FEHIO::P0_0), rightEncoder(FEHIO::P0_1), cdsCell(FEHIO::P2_1) {
   lineState = NoLine;
 }
 
 Drivetrain::Drivetrain(
+  Logger* logger,
   FEHIO::FEHIOPin leftPin,
   FEHIO::FEHIOPin centerPin,
   FEHIO::FEHIOPin rightPin,
@@ -16,7 +17,7 @@ Drivetrain::Drivetrain(
   FEHIO::FEHIOPin rightEncoderPin,
   FEHIO::FEHIOPin cdsCellPin
 ): 
-  Module(), 
+  Module(logger), 
   leftOpto(leftPin),
   centerOpto(centerPin),
   rightOpto(rightPin), 
@@ -53,31 +54,28 @@ void Drivetrain::telemetry() {
   // TODO: Print current encoder counts to screen
   switch (lineState) {
     case OnLine: {
-      LCD.WriteLine("Line State: ON LINE");
+      logger->telemetry("Line State: ON LINE");
       break;
     }
     case LeftOfLine: {
-      LCD.WriteLine("Line State: LEFT OF LINE");
+      logger->telemetry("Line State: LEFT OF LINE");
       break;
     };
     case RightOfLine: {
-      LCD.WriteLine("Line State: RIGHT OF LINE");
+      logger->telemetry("Line State: RIGHT OF LINE");
       break;
     };
     case AtLine: {
-      LCD.WriteLine("Line State: AT LINE");
+      logger->telemetry("Line State: AT LINE");
       break;
     };
     default: {
-      LCD.WriteLine("Line State: NO LINE");
+      logger->telemetry("Line State: NO LINE");
     }
   }
-  LCD.WriteLine("Left Counts:");
-  LCD.WriteLine(getLeftCounts());
-  LCD.WriteLine("Right Counts:");
-  LCD.WriteLine(getRightCounts());
-  LCD.WriteLine("CDS Color: ");
-  LCD.WriteLine(cdsCell.Value());
+  logger->telemetry("Left Counts: %d", getLeftCounts());
+  logger->telemetry("Right Counts: %d", getRightCounts());
+  logger->telemetry("CDS Value: %f", cdsCell.Value());
 }
 
 void Drivetrain::stop() {

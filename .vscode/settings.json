@@ -39,6 +39,7 @@
         "utility": "cpp",
         "vector": "cpp",
         "istream": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "cstdio": "cpp"
     }
 }

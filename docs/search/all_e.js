@@ -1,7 +1,11 @@
 var searchData=
 [
-  ['task_55',['Task',['../class_task.html',1,'Task'],['../class_task.html#ae890db33619c6ac34f123c760eaf45dd',1,'Task::Task()']]],
-  ['telemetry_56',['telemetry',['../class_component.html#abc095f6c88efc62f58d0197cfb76df3d',1,'Component::telemetry()'],['../class_course.html#a4b1363e3be38584413672586e1254247',1,'Course::telemetry()'],['../classmodule_1_1_drivetrain.html#a72d5894c1db224b1112cca993395dc8a',1,'module::Drivetrain::telemetry()'],['../classmodule_1_1_r_p_s_module.html#a5a8f96bf143bae420b9b134b82dddd37',1,'module::RPSModule::telemetry()'],['../class_robot.html#ae547751605ec658877ff2aacbc5947b8',1,'Robot::telemetry()'],['../classtask_1_1_jukebox.html#a7da6ba953400d90ffb08ff1d28286754',1,'task::Jukebox::telemetry()']]],
-  ['turnleft_57',['turnLeft',['../class_robot.html#a51e49fe56234ebf061d03b0a98999e28',1,'Robot::turnLeft()'],['../class_robot.html#a15c1f0b9087e6be48a259b8186149000',1,'Robot::turnLeft(float percent)']]],
-  ['turnright_58',['turnRight',['../class_robot.html#a03e3a0d4202e4dc7d2f73b419cfdc409',1,'Robot::turnRight()'],['../class_robot.html#a62a676616efda7f166e7e29ff7039997',1,'Robot::turnRight(float percent)']]]
+  ['setfileloglevel_56',['setFileLogLevel',['../classutil_1_1_logger.html#af176e6340d4f2a4f1c356235eb63f1ab',1,'util::Logger']]],
+  ['setlcdloglevel_57',['setLcdLogLevel',['../classutil_1_1_logger.html#acfb319a72ab0d9089361694f029a9571',1,'util::Logger']]],
+  ['setleftpercent_58',['setLeftPercent',['../classmodule_1_1_drivetrain.html#a15198732eca95b2213faa3e015d047d4',1,'module::Drivetrain']]],
+  ['setpercent_59',['setPercent',['../classmodule_1_1_drivetrain.html#a3ec41a3befe2becf04436b72e59375cb',1,'module::Drivetrain']]],
+  ['setrightpercent_60',['setRightPercent',['../classmodule_1_1_drivetrain.html#aca86506bc825a38d8211e4d80c056389',1,'module::Drivetrain']]],
+  ['starttime_61',['startTime',['../class_program.html#ac973b4c75de21f348e3cdc2996a76cfa',1,'Program']]],
+  ['stop_62',['stop',['../class_component.html#a6871e1e4327dbe32dde28ce87fc1820e',1,'Component::stop()'],['../class_course.html#a2a8c7916e8d8d3c812635e27a428d159',1,'Course::stop()'],['../classmodule_1_1_drivetrain.html#a39779799fba07c9549fb309316c238f0',1,'module::Drivetrain::stop()'],['../classmodule_1_1_r_p_s_module.html#a1d91855cbd1588f2fb500950ad366d89',1,'module::RPSModule::stop()'],['../class_program.html#a7a35ba8f76907b04ff80eb3bf68dea96',1,'Program::stop()'],['../class_robot.html#a14dfe126ae973d3b9f81fee81a06ac22',1,'Robot::stop()'],['../classtask_1_1_jukebox.html#ac31edf32065bcfacabbbda01653fa31c',1,'task::Jukebox::stop()']]],
+  ['surface_63',['Surface',['../struct_surface.html',1,'']]]
 ];
