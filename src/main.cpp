@@ -7,11 +7,13 @@
 #include "programs/Exploration02.h"
 #include "programs/DriveForward.h"
 #include "programs/BackwardsUpRamp.h"
+#include "programs/Performance01.h"
+#include "programs/CdSCellTest.h"
 using namespace program;
 
 int main() {
   // Create a new logger
-  Logger logger(Debug, Debug);
+  Logger logger(Debug);
   // Open the log file
   logger.open("log.txt");
   // Declare the robot and the course
@@ -19,22 +21,29 @@ int main() {
   Robot robot(&logger);
 
   // Define the programs
-  Exploration02 exploration02(&robot, &course);
-  DriveForward driveForward(&robot, &course);
-  BackwardsUpRamp backwardsUpRamp(&robot, &course);
+  Exploration02 exploration02(&robot, &course, &logger);
+  DriveForward driveForward(&robot, &course, &logger);
+  BackwardsUpRamp backwardsUpRamp(&robot, &course, &logger);
+  Performance01 performance01(&robot, &course, &logger);
+  CdSCellTest cdsCellTest(&robot, &course, &logger);
 
   // Define the program array
   Program* programs[] = {
     &exploration02,
     &driveForward,
-    &backwardsUpRamp
+    &backwardsUpRamp,
+    &performance01,
+    &cdsCellTest
   };
 
   // Define the menu
-  Menu menu(programs, 3);
+  Menu menu(programs, 5, &logger);
 
   // Display the program selection menu
   menu.display();
+
+  // Close the log file
+  logger.close();
 
   return 0;
 }

@@ -1,4 +1,5 @@
 #include "../include/Robot.h"
+#include <FEHBattery.h>
 
 Robot::Robot(Logger* logger): Module(logger), drivetrain(logger), rps(logger) {
   this->logger = logger;
@@ -18,16 +19,14 @@ Robot::Robot(
 }
 
 void Robot::init() {
-  // Initilize with RPS enabled by default
-  init(true);
-}
-
-void Robot::init(bool enableRps) {
+  logger->debug("Initialize Robot");
+  logger->info("Battery Voltage: %4.2f", Battery.Voltage());
+  // rps.init();
   drivetrain.init();
-  if (enableRps) rps.init();
 }
 
 void Robot::stop() {
+  logger->debug("Stop Robot");
   drivetrain.stop();
   rps.stop();
 }
@@ -86,6 +85,25 @@ bool Robot::drive(float distance, float percent) {
   }
 }
 
+bool Robot::driveUntilLine(float percent, float maxDistance) {
+  if (drivetrain.getAverageDistance() <= maxDistance) {
+    return driveUntilLine(percent);
+  } else {
+    drivetrain.stop();
+    return true;
+  }
+}
+
+bool Robot::driveUntilLine(float percent) {
+  if (drivetrain.getLineState() != NoLine) {
+    drivetrain.setPercent(percent);
+    return false;
+  } else {
+    drivetrain.stop();
+    return true;
+  }
+}
+
 bool Robot::turnLeft() {
   return turnLeft(DEFAULT_PERCENT);
 }
@@ -113,7 +131,7 @@ bool Robot::turnLeftDegree(float degree, float percent) {
 }
 
 bool Robot::turnRight() {
-  return turnLeft(DEFAULT_PERCENT);
+  return turnRight(DEFAULT_PERCENT);
 }
 
 bool Robot::turnRight(float percent) {
@@ -128,7 +146,7 @@ bool Robot::turnRight(float percent) {
 }
 
 bool Robot::turnRightDegree(float degree, float percent) {
-    if (drivetrain.getAverageDistance() <= (degree / 90) * TURN_DISTANCE) {
+  if (drivetrain.getAverageDistance() <= (degree / 90) * TURN_DISTANCE) {
     drivetrain.setLeftPercent(percent);
     drivetrain.setRightPercent(-percent);
     return false;

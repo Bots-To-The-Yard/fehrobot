@@ -5,37 +5,28 @@
 #include <string.h>
 using namespace util;
 
-Logger::Logger(LogLevel lcdLogLevel, LogLevel fileLogLevel) {
+Logger::Logger(LogLevel logLevel) {
   this->file = nullptr;
-  this->lcdLogLevel = lcdLogLevel;
-  this->fileLogLevel = fileLogLevel;
+  this->logLevel = logLevel;
 }
 
 void Logger::open(const TCHAR* fileName) {
   // Open the file
   file = SD.FOpen(fileName, "w");
   // Print out the header
-  SD.FPrintf(file, "LOGGING STARTED AT %dl", TimeNowMSec());
-  SD.FPrintf(file, "----------------------------------------");
+  SD.FPrintf(file, "LOGGING STARTED AT %d\n", TimeNowMSec());
+  SD.FPrintf(file, "----------------------------------------\n");
 }
 
 void Logger::close() {
   SD.FClose(file);
 }
 
-void Logger::setLcdLogLevel(LogLevel logLevel) {
-  this->lcdLogLevel = logLevel;
-}
-
-void Logger::setFileLogLevel(LogLevel logLevel) {
-  this->fileLogLevel = logLevel;
+void Logger::setLogLevel(LogLevel logLevel) {
+  this->logLevel = logLevel;
 }
 
 void Logger::printLine(char* str) {
-  LCD.WriteLine(str);
-}
-
-void Logger::filePrintLine(char* str) {
   // Print to the log file if opened
   if (file != nullptr) {
     SD.FPrintf(file, str);
@@ -45,56 +36,65 @@ void Logger::filePrintLine(char* str) {
 }
 
 void Logger::telemetry(const char* format, ...) {
-  char* str;
   // Format the telemetry data
-  sprintf(str, format);
+  va_list args;
+  va_start(args, format);
+  vsnprintf(buffer, sizeof(buffer), format, args);
+  va_end(args);
   // Print to the screen
-  printLine(str);
+  LCD.WriteLine(buffer);
 }
 
-void Logger::log(LogLevel level, const char* format, ...) {
-  // The output string
-  char* str;
+void Logger::log(LogLevel level, const char* format, va_list args) {
   // Print out the timestamp
-  sprintf(str, "%ld ", TimeNowMSec());
+  sprintf(buffer, "%ld ", TimeNowMSec());
   // Print out the log level
   switch (level) {
     case Debug:
-      sprintf(str, "DEBUG - ");
+      sprintf(buffer + strlen(buffer), "DEBUG - ");
       break;
     case Info:
-      sprintf(str, "INFO - ");
+      sprintf(buffer + strlen(buffer), "INFO - ");
       break;
     case Warn:
-      sprintf(str, "WARN - ");
+      sprintf(buffer + strlen(buffer), "WARN - ");
       break;
     case Error:
-      sprintf(str, "ERROR - ");
+      sprintf(buffer + strlen(buffer), "ERROR - ");
       break;
   }
-  sprintf(str, format);
-  // Print to the LCD screen
-  if (level >= lcdLogLevel) {
-    printLine(str);
-  }
+  // Print the formatted string
+  vsprintf(buffer + strlen(buffer), format, args);
   // Print to the file
-  if (level >= fileLogLevel) {
-    filePrintLine(str);
+  if (level >= logLevel) {
+    printLine(buffer);
   }
 }
 
 void Logger::debug(const char* format, ...) {
-  log(Debug, format);
+  va_list args;
+  va_start(args, format);
+  log(Debug, format, args);
+  va_end(args);
 }
 
 void Logger::info(const char* format, ...) {
-  log(Info, format);
+  va_list args;
+  va_start(args, format);
+  log(Info, format, args);
+  va_end(args);
 }
 
 void Logger::warn(const char* format, ...) {
-  log(Warn, format);
+  va_list args;
+  va_start(args, format);
+  log(Warn, format, args);
+  va_end(args);
 }
 
 void Logger::error(const char* format, ...) {
-  log(Error, format);
+  va_list args;
+  va_start(args, format);
+  log(Error, format, args);
+  va_end(args);
 }

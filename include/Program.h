@@ -20,6 +20,10 @@ class Program {
     bool running;
   protected:
     /**
+     * The logger instance.
+     */
+    Logger* logger;
+    /**
      * A reference to the Robot object.
      */
     Robot* robot;
@@ -45,9 +49,10 @@ class Program {
      * 
      * @param robot The program name.
      * @param robot A reference to the Robot.
-     * @param course A reference to the Course.=
+     * @param course A reference to the Course.
+     * @param logger A reference to the Logger.
      */
-    Program(char* name, Robot* robot, Course* course);
+    Program(char* name, Robot* robot, Course* course, Logger* logger);
     /**
      * Get the program name
      * 
@@ -55,15 +60,9 @@ class Program {
      */
     char* getName();
     /**
-     * Initilize the program.
+     * Initialize the program.
      */
-    void init();
-    /**
-     * Initilize the program.
-     * 
-     * @param disableRps Disable the RPS.
-     */
-    void init(bool disableRps);
+    virtual void init();
     /**
      * Run the program.
      * 
@@ -83,6 +82,7 @@ class Program {
      * Stop the program.
      */
     void stop();
+    virtual void telemetry();
 };
 
 #endif

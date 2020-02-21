@@ -2,7 +2,7 @@
 #include "FEHLCD.h"
 using namespace module;
 
-Drivetrain::Drivetrain(Logger* logger): Module(logger), leftOpto(FEHIO::P1_0), centerOpto(FEHIO::P1_1), rightOpto(FEHIO::P1_2), left(FEHMotor::Motor0, 9.0), right(FEHMotor::Motor1, 9.0), leftEncoder(FEHIO::P0_0), rightEncoder(FEHIO::P0_1), cdsCell(FEHIO::P2_1) {
+Drivetrain::Drivetrain(Logger* logger): Module(logger), leftOpto(FEHIO::P1_0), centerOpto(FEHIO::P1_1), rightOpto(FEHIO::P1_2), left(FEHMotor::Motor0, 9.0), right(FEHMotor::Motor1, 9.0), leftEncoder(FEHIO::P0_0), rightEncoder(FEHIO::P0_1), cdsCell(FEHIO::P2_0) {
   lineState = NoLine;
 }
 
@@ -32,6 +32,7 @@ Drivetrain::Drivetrain(
 }
 
 void Drivetrain::init() {
+  logger->debug("Initialize Drivetrain");
   resetEncoders();
 }
 
@@ -75,10 +76,21 @@ void Drivetrain::telemetry() {
   }
   logger->telemetry("Left Counts: %d", getLeftCounts());
   logger->telemetry("Right Counts: %d", getRightCounts());
-  logger->telemetry("CDS Value: %f", cdsCell.Value());
+  switch (getCdsColor()) {
+    case Red:
+      logger->telemetry("CdS Color: RED");
+      break;
+    case Blue:
+      logger->telemetry("CdS Color: BLUE");
+      break;
+    default:
+      logger->telemetry("CdS Color: NONE");
+      break;
+  }
 }
 
 void Drivetrain::stop() {
+  logger->debug("Stop Drivetrain");
   setPercent(0);
   resetEncoders();
 }
@@ -102,7 +114,9 @@ LineState Drivetrain::getLineState() {
 }
 
 CdsColor Drivetrain::getCdsColor() {
-  // TODO: Implement CdS color detection
+  // Check the color detected by the CdS cell
+  if (cdsCell.Value() <= 0.92 && cdsCell.Value() >= 0.6) return Blue;
+  if (cdsCell.Value() <= 0.3) return Red;
   return None;
 }
 

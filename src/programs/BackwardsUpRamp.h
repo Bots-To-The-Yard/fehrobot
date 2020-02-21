@@ -19,8 +19,9 @@ namespace program {
        * 
        * @param robot A reference to the robot object.
        * @param course A reference to the course object.
+       * @param logger A reference to the logger object.
        */
-      BackwardsUpRamp(Robot* robot, Course* course);
+      BackwardsUpRamp(Robot* robot, Course* course, Logger* logger);
       void init();
       void loop();
   };

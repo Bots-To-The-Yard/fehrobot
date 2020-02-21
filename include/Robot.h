@@ -8,8 +8,8 @@
 #include "Modules.h"
 using namespace module;
 
-#define DEFAULT_PERCENT 40
-#define TURN_DISTANCE 5.2
+#define DEFAULT_PERCENT 15
+#define TURN_DISTANCE 2.8
 
 /**
  * The robot.
@@ -60,12 +60,6 @@ class Robot: public Module {
     void update(double time);
     void telemetry();
     /**
-     * Initilize the program
-     * 
-     * @param enableRps Enable the RPS initilization screen.
-     */
-    void init(bool enableRps);
-    /**
      * Follow a black line at the default speed.
      */
     void followLine();
@@ -101,6 +95,23 @@ class Robot: public Module {
      * @return false The robot is still driving.
      */
     bool drive(float distance, float percent);
+    /**
+     * Drive until the robot hits a line with any optosensor.
+     * 
+     * @param percent The maximum motor percent.
+     * @param maxDistance The maximum distance the robot can go before failing.
+     * @return true The robot has hit the line or failed.
+     * @return false The robot is still looking for the line.
+     */
+    bool driveUntilLine(float percent, float maxDistance);
+    /**
+     * Drive until the robot hits a line with any optosensor.
+     * 
+     * @param percent The maximum motor percent.
+     * @return true The robot has hit the line.
+     * @return false The robot is still looking for the line.
+     */
+    bool driveUntilLine(float percent);
     /**
      * Turn the robot left at the default speed.
      * 

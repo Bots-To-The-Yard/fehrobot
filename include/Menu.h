@@ -9,6 +9,10 @@
 class Menu {
   private:
     /**
+     * The logger instance.
+     */
+    Logger* logger;
+    /**
      * The programs to display.
      */
     Program** programs;
@@ -38,8 +42,9 @@ class Menu {
      * 
      * @param programs The programs to display.
      * @param programCount The number of programs to display.
+     * @param logger A reference to the logger.
      */
-    Menu(Program** programs, int programCount);
+    Menu(Program** programs, int programCount, Logger* logger);
     /**
      * Display the program selection menu.
      */

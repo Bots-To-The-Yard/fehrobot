@@ -75,20 +75,21 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0eb851d3f8e560eaa40c29c3b4c95bab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_program.html#a0eb851d3f8e560eaa40c29c3b4c95bab">Program</a> (char *name, <a class="el" href="class_robot.html">Robot</a> *<a class="el" href="class_program.html#aedfac2c3bfba527a5eb21d14a7e6d377">robot</a>, <a class="el" href="class_course.html">Course</a> *<a class="el" href="class_program.html#a315b12c3ceabd207cbdc72bdd504234d">course</a>)</td></tr>
-<tr class="separator:a0eb851d3f8e560eaa40c29c3b4c95bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03100bc071985c23cc3aa314de29dfe7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_program.html#a03100bc071985c23cc3aa314de29dfe7">Program</a> (char *name, <a class="el" href="class_robot.html">Robot</a> *<a class="el" href="class_program.html#aedfac2c3bfba527a5eb21d14a7e6d377">robot</a>, <a class="el" href="class_course.html">Course</a> *<a class="el" href="class_program.html#a315b12c3ceabd207cbdc72bdd504234d">course</a>, <a class="el" href="classutil_1_1_logger.html">Logger</a> *<a class="el" href="class_program.html#a718522913d0d88c941d5ff734c19aed9">logger</a>)</td></tr>
+<tr class="separator:a03100bc071985c23cc3aa314de29dfe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a784939176b8972d0a18a96f8a6045bd1"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_program.html#a784939176b8972d0a18a96f8a6045bd1">getName</a> ()</td></tr>
 <tr class="separator:a784939176b8972d0a18a96f8a6045bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33d5912b81ccf4a0c089894513844580"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_program.html#a33d5912b81ccf4a0c089894513844580">init</a> ()</td></tr>
+<tr class="memitem:a33d5912b81ccf4a0c089894513844580"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_program.html#a33d5912b81ccf4a0c089894513844580">init</a> ()</td></tr>
 <tr class="separator:a33d5912b81ccf4a0c089894513844580"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20eb5d3e2e00af303ae7da46814bf236"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_program.html#a20eb5d3e2e00af303ae7da46814bf236">init</a> (bool disableRps)</td></tr>
-<tr class="separator:a20eb5d3e2e00af303ae7da46814bf236"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6adbc9a50861c35f3229cfb277b4afdb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_program.html#a6adbc9a50861c35f3229cfb277b4afdb">run</a> ()</td></tr>
 <tr class="separator:a6adbc9a50861c35f3229cfb277b4afdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a2403c0800d884c16018c3e70960938"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_program.html#a6a2403c0800d884c16018c3e70960938">run</a> (bool telemetry)</td></tr>
 <tr class="separator:a6a2403c0800d884c16018c3e70960938"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a35ba8f76907b04ff80eb3bf68dea96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_program.html#a7a35ba8f76907b04ff80eb3bf68dea96">stop</a> ()</td></tr>
 <tr class="separator:a7a35ba8f76907b04ff80eb3bf68dea96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bff0010cc48775952e38dce7cc63847"><td class="memItemLeft" align="right" valign="top"><a id="a1bff0010cc48775952e38dce7cc63847"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>telemetry</b> ()</td></tr>
+<tr class="separator:a1bff0010cc48775952e38dce7cc63847"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -97,6 +98,8 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
+<tr class="memitem:a718522913d0d88c941d5ff734c19aed9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classutil_1_1_logger.html">Logger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_program.html#a718522913d0d88c941d5ff734c19aed9">logger</a></td></tr>
+<tr class="separator:a718522913d0d88c941d5ff734c19aed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedfac2c3bfba527a5eb21d14a7e6d377"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_robot.html">Robot</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_program.html#aedfac2c3bfba527a5eb21d14a7e6d377">robot</a></td></tr>
 <tr class="separator:aedfac2c3bfba527a5eb21d14a7e6d377"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a315b12c3ceabd207cbdc72bdd504234d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_course.html">Course</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_program.html#a315b12c3ceabd207cbdc72bdd504234d">course</a></td></tr>
@@ -109,8 +112,8 @@ Protected Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A program. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0eb851d3f8e560eaa40c29c3b4c95bab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0eb851d3f8e560eaa40c29c3b4c95bab">&#9670;&nbsp;</a></span>Program()</h2>
+<a id="a03100bc071985c23cc3aa314de29dfe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03100bc071985c23cc3aa314de29dfe7">&#9670;&nbsp;</a></span>Program()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -131,7 +134,13 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_course.html">Course</a> *&#160;</td>
-          <td class="paramname"><em>course</em>&#160;</td>
+          <td class="paramname"><em>course</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classutil_1_1_logger.html">Logger</a> *&#160;</td>
+          <td class="paramname"><em>logger</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -145,7 +154,8 @@ Protected Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">robot</td><td>The program name. </td></tr>
     <tr><td class="paramname">robot</td><td>A reference to the <a class="el" href="class_robot.html">Robot</a>. </td></tr>
-    <tr><td class="paramname">course</td><td>A reference to the <a class="el" href="class_course.html">Course</a>.= </td></tr>
+    <tr><td class="paramname">course</td><td>A reference to the <a class="el" href="class_course.html">Course</a>. </td></tr>
+    <tr><td class="paramname">logger</td><td>A reference to the Logger. </td></tr>
   </table>
   </dd>
 </dl>
@@ -173,10 +183,13 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a33d5912b81ccf4a0c089894513844580"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33d5912b81ccf4a0c089894513844580">&#9670;&nbsp;</a></span>init() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a33d5912b81ccf4a0c089894513844580">&#9670;&nbsp;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Program::init </td>
@@ -185,33 +198,13 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>Initilize the program. </p>
-
-</div>
-</div>
-<a id="a20eb5d3e2e00af303ae7da46814bf236"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20eb5d3e2e00af303ae7da46814bf236">&#9670;&nbsp;</a></span>init() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Program::init </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>disableRps</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Initilize the program.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">disableRps</td><td>Disable the RPS. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Initialize the program. </p>
 
 </div>
 </div>
@@ -355,6 +348,29 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>The last time the telemetry was printed. </p>
+
+</div>
+</div>
+<a id="a718522913d0d88c941d5ff734c19aed9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a718522913d0d88c941d5ff734c19aed9">&#9670;&nbsp;</a></span>logger</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classutil_1_1_logger.html">Logger</a>* Program::logger</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The logger instance. </p>
 
 </div>
 </div>

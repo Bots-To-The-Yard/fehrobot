@@ -2,10 +2,11 @@
 #include "FEHUtility.h"
 #include "FEHLCD.h"
 
-Program::Program(char* name, Robot* robot, Course* course) {
+Program::Program(char* name, Robot* robot, Course* course, Logger* logger) {
   this->name = name;
   this->robot = robot;
   this->course = course;
+  this->logger = logger;
   startTime = 0;
   lastTelemetry = 0;
   running = false;
@@ -14,27 +15,28 @@ Program::Program(char* name, Robot* robot, Course* course) {
 char* Program::getName() {
   return name;
 }
-
 void Program::init() {
-  // Initilize the robot
+  logger->debug("Initialize Program: %s", name);
+  // Initialize the robot
   robot->init();
-}
-
-void Program::init(bool disableRps) {
-  // Initilize the robot
-  robot->init(disableRps);
+  // Reset running and start time
+  running = false;
+  startTime = 0;
 }
 
 void Program::run() {
   run(true);
 }
 
+void Program::telemetry() {}
+
 void Program::run(bool telemetry) {
-  // Set the internal references
+  logger->debug("Run Program: %s", name);
   // Set running to true
   running = true;
   // Set the start time
   startTime = TimeNow();
+  logger->debug("Program Start Time: %f", startTime);
   // Run the program loop
   while (running) {
     float time = TimeNow();
@@ -53,6 +55,7 @@ void Program::run(bool telemetry) {
         // Have the robot write the telemetry to the screen
         robot->telemetry();
         course->telemetry();
+        this->telemetry();
       }
     }
     // Run the program loop function
@@ -61,6 +64,7 @@ void Program::run(bool telemetry) {
 }
 
 void Program::stop() {
+  logger->debug("Stop Program: %s", name);
   // Stop the program
   running = false;
   startTime = 0;

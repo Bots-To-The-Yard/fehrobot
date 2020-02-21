@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['setfileloglevel_56',['setFileLogLevel',['../classutil_1_1_logger.html#af176e6340d4f2a4f1c356235eb63f1ab',1,'util::Logger']]],
-  ['setlcdloglevel_57',['setLcdLogLevel',['../classutil_1_1_logger.html#acfb319a72ab0d9089361694f029a9571',1,'util::Logger']]],
-  ['setleftpercent_58',['setLeftPercent',['../classmodule_1_1_drivetrain.html#a15198732eca95b2213faa3e015d047d4',1,'module::Drivetrain']]],
+  ['setleftpercent_57',['setLeftPercent',['../classmodule_1_1_drivetrain.html#a15198732eca95b2213faa3e015d047d4',1,'module::Drivetrain']]],
+  ['setloglevel_58',['setLogLevel',['../classutil_1_1_logger.html#a76962587ace804ef14f24f7220a4a688',1,'util::Logger']]],
   ['setpercent_59',['setPercent',['../classmodule_1_1_drivetrain.html#a3ec41a3befe2becf04436b72e59375cb',1,'module::Drivetrain']]],
   ['setrightpercent_60',['setRightPercent',['../classmodule_1_1_drivetrain.html#aca86506bc825a38d8211e4d80c056389',1,'module::Drivetrain']]],
   ['starttime_61',['startTime',['../class_program.html#ac973b4c75de21f348e3cdc2996a76cfa',1,'Program']]],

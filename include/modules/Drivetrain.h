@@ -12,6 +12,8 @@
 #define LEFT_VOLTAGE 2.1
 #define CENTER_VOLTAGE 2.1
 #define RIGHT_VOLTAGE 2.1
+#define RED_VOLTAGE 0.5
+#define BLUE_VOLTAGE 0.8
 
 /**
  * The line detection state.
@@ -75,11 +77,11 @@ namespace module {
        * The right analog optosensor.
        */
       AnalogInputPin rightOpto;
+    public:
       /**
        * The CdS cell
        */
       AnalogInputPin cdsCell;
-    public:
       /**
        * Construct a new Drivetrain object.
        * 

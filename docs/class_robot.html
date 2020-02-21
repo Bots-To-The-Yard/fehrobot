@@ -95,8 +95,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a78e98190643df3c3f6b91f794e20f071"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae547751605ec658877ff2aacbc5947b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#ae547751605ec658877ff2aacbc5947b8">telemetry</a> ()</td></tr>
 <tr class="separator:ae547751605ec658877ff2aacbc5947b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad5ed35b1a38eb5577de1207de019806"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#aad5ed35b1a38eb5577de1207de019806">init</a> (bool enableRps)</td></tr>
-<tr class="separator:aad5ed35b1a38eb5577de1207de019806"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e3caf6e0346f6a54557eb57a79fc4f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#a6e3caf6e0346f6a54557eb57a79fc4f4">followLine</a> ()</td></tr>
 <tr class="separator:a6e3caf6e0346f6a54557eb57a79fc4f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d146f032c8661f6a008a4862f3ff512"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#a4d146f032c8661f6a008a4862f3ff512">followLine</a> (float percent)</td></tr>
@@ -107,6 +105,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9fb1c3099e97f1237e2e33b764617c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c5e8edef364ffae76fe60a24fa7cedb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#a0c5e8edef364ffae76fe60a24fa7cedb">drive</a> (float distance, float percent)</td></tr>
 <tr class="separator:a0c5e8edef364ffae76fe60a24fa7cedb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac21e30bee066c0d47466a5ae43190fb2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#ac21e30bee066c0d47466a5ae43190fb2">driveUntilLine</a> (float percent, float maxDistance)</td></tr>
+<tr class="separator:ac21e30bee066c0d47466a5ae43190fb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa2f6e10f9edcb7fd90137db4e97a7d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#afa2f6e10f9edcb7fd90137db4e97a7d2">driveUntilLine</a> (float percent)</td></tr>
+<tr class="separator:afa2f6e10f9edcb7fd90137db4e97a7d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51e49fe56234ebf061d03b0a98999e28"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#a51e49fe56234ebf061d03b0a98999e28">turnLeft</a> ()</td></tr>
 <tr class="separator:a51e49fe56234ebf061d03b0a98999e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15c1f0b9087e6be48a259b8186149000"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#a15c1f0b9087e6be48a259b8186149000">turnLeft</a> (float percent)</td></tr>
@@ -314,6 +316,73 @@ false The robot is still driving. </dd></dl>
 
 </div>
 </div>
+<a id="afa2f6e10f9edcb7fd90137db4e97a7d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa2f6e10f9edcb7fd90137db4e97a7d2">&#9670;&nbsp;</a></span>driveUntilLine() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Robot::driveUntilLine </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>percent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Drive until the robot hits a line with any optosensor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">percent</td><td>The maximum motor percent. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true The robot has hit the line. </dd>
+<dd>
+false The robot is still looking for the line. </dd></dl>
+
+</div>
+</div>
+<a id="ac21e30bee066c0d47466a5ae43190fb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac21e30bee066c0d47466a5ae43190fb2">&#9670;&nbsp;</a></span>driveUntilLine() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Robot::driveUntilLine </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>percent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>maxDistance</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Drive until the robot hits a line with any optosensor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">percent</td><td>The maximum motor percent. </td></tr>
+    <tr><td class="paramname">maxDistance</td><td>The maximum distance the robot can go before failing. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true The robot has hit the line or failed. </dd>
+<dd>
+false The robot is still looking for the line. </dd></dl>
+
+</div>
+</div>
 <a id="a6e3caf6e0346f6a54557eb57a79fc4f4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6e3caf6e0346f6a54557eb57a79fc4f4">&#9670;&nbsp;</a></span>followLine() <span class="overload">[1/3]</span></h2>
 
@@ -435,7 +504,7 @@ false The robot is still following the line. </dd></dl>
 </div>
 </div>
 <a id="a990e86a39cb249629a0985e71211fa2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a990e86a39cb249629a0985e71211fa2e">&#9670;&nbsp;</a></span>init() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a990e86a39cb249629a0985e71211fa2e">&#9670;&nbsp;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -456,35 +525,10 @@ false The robot is still following the line. </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Initilize the component.</p>
+<p>Initialize the component.</p>
 <p>This method is run to preform any initilization tasks before the control loop. </p>
 
 <p>Implements <a class="el" href="class_component.html#a56baf8afdea3366554b3c7b13fd6e3f7">Component</a>.</p>
-
-</div>
-</div>
-<a id="aad5ed35b1a38eb5577de1207de019806"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad5ed35b1a38eb5577de1207de019806">&#9670;&nbsp;</a></span>init() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Robot::init </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>enableRps</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Initilize the program</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">enableRps</td><td>Enable the RPS initilization screen. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

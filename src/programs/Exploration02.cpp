@@ -1,12 +1,12 @@
 #include "Exploration02.h"
 using namespace program;
 
-Exploration02::Exploration02(Robot* robot, Course* course): Program("Exploration 2", robot, course) {
+Exploration02::Exploration02(Robot* robot, Course* course, Logger* logger): Program("Exploration 2", robot, course, logger) {
   state = 0;
 }
 
 void Exploration02::init() {
-  Program::init(false);
+  Program::init();
   // Reset the state to 0
   state = 0;
 }

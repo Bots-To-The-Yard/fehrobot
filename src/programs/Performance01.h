@@ -19,10 +19,12 @@ namespace program {
        * 
        * @param robot A reference to the robot object.
        * @param course A reference to the course object.
+       * @param logger A reference to the logger object.
        */
-      Performance01(Robot* robot, Course* course);
+      Performance01(Robot* robot, Course* course, Logger* logger);
       void init();
       void loop();
+      void telemetry();
   };
 };
 

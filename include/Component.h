@@ -7,7 +7,7 @@
 class Component {
   public:
     /**
-     * Initilize the component.
+     * Initialize the component.
      * 
      * This method is run to preform any initilization tasks before the control loop.
      */

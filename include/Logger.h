@@ -26,11 +26,11 @@ namespace util {
       /**
        * The file log level.
        */
-      LogLevel fileLogLevel;
+      LogLevel logLevel;
       /**
-       * The LCD log level.
+       * The string buffer for the logger.
        */
-      LogLevel lcdLogLevel;
+      char buffer[100];
       /**
        * Gets the timestamp.
        * 
@@ -38,25 +38,26 @@ namespace util {
        */
       char* getTimestamp();
       /**
-       * Prints a string to the LCD screen.
+       * Prints a string to the log file.
        * 
        * @param str The string to print.
        */
       void printLine(char* str);
       /**
-       * Prints a string to the log file.
+       * Logs a string to the output file.
        * 
-       * @param str The string to print.
+       * @param level The log level.
+       * @param format The format for the log.
+       * @param args The variable arguments.
        */
-      void filePrintLine(char* str);
+      void log(LogLevel level, const char* format, va_list args);
     public:
       /**
        * Construct a new Logger object
        * 
-       * @param lcdLogLevel The maximum log level to output to the screen.
-       * @param fileLogLevel The maximum log level to output to the file.
+       * @param logLevel The maximum log level to output to the file.
        */
-      Logger(LogLevel lcdLogLevel, LogLevel fileLogLevel);
+      Logger(LogLevel logLevel);
       /**
        * Opens a log file.
        * 
@@ -72,26 +73,13 @@ namespace util {
        * 
        * @param logLevel The new log level.
        */ 
-      void setFileLogLevel(LogLevel logLevel);
-      /**
-       * Sets the LCD screen log level.
-       * 
-       * @param logLevel The new log level.
-       */ 
-      void setLcdLogLevel(LogLevel logLevel);
+      void setLogLevel(LogLevel logLevel);
       /**
        * Prints a telemetry string to the screen.
        * 
        * @param format The format for the telemetry log.
        */
       void telemetry(const char* format, ...);
-      /**
-       * Logs a string to the output file.
-       * 
-       * @param level The log level.
-       * @param format The format for the log.
-       */
-      void log(LogLevel level, const char* format, ...);
       /**
        * Logs a debug string.
        * 
