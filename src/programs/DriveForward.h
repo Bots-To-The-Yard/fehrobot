@@ -16,12 +16,8 @@ namespace program {
     public:
       /**
        * Construct a new ForwardUpRamp object
-       * 
-       * @param robot A reference to the robot object.
-       * @param course A reference to the course object.
-       * @param logger A reference to the logger object.
        */
-      DriveForward(Robot* robot, Course* course, Logger* logger);
+      DriveForward();
       void init();
       void loop();
   };

@@ -1,7 +1,9 @@
 #ifndef MENU_H
 #define MENU_H
 
+#include <vector>
 #include "Program.h"
+using namespace std;
 
 /**
  * The program selection menu.
@@ -9,13 +11,21 @@
 class Menu {
   private:
     /**
-     * The logger instance.
+     * The a pointer to the Logger object.
      */
     Logger* logger;
     /**
+     * A pointer to the Robot object.
+     */
+    Robot* robot;
+    /**
+     * A pointer to the Course object.
+     */
+    Course* course;
+    /**
      * The programs to display.
      */
-    Program** programs;
+    vector<Program*> programs;
     /**
      * The active program.
      */
@@ -28,10 +38,6 @@ class Menu {
      * The y touch coordinate.
      */
     float y;
-    /**
-     * The number of programs to display.
-     */
-    int programCount;
   public:
     /**
      * Construct a new Menu object
@@ -40,11 +46,17 @@ class Menu {
     /**
      * Construct a new Menu object
      * 
-     * @param programs The programs to display.
-     * @param programCount The number of programs to display.
-     * @param logger A reference to the logger.
+     * @param robot A pointer to the robot.
+     * @param course A pointer to the course.
+     * @param logger A pointer to the logger.
      */
-    Menu(Program** programs, int programCount, Logger* logger);
+    Menu(Robot* robot, Course* course, Logger* logger);
+    /**
+     * Add a program to the menu.
+     * 
+     * @param program A pointer to the program.
+     */
+    void addProgram(Program* program);
     /**
      * Display the program selection menu.
      */

@@ -2,7 +2,8 @@
 #include <FEHBattery.h>
 
 Robot::Robot(Logger* logger): Module(logger), drivetrain(logger), rps(logger) {
-  this->logger = logger;
+  sleepStart = 0;
+  sleeping = false;
 }
 
 Robot::Robot(
@@ -16,6 +17,8 @@ Robot::Robot(
   FEHIO::FEHIOPin rightEncoderPin,
   FEHIO::FEHIOPin cdsCellPin
 ): Module(logger), drivetrain(logger, leftPin, centerPin, rightPin, leftMotorPort, rightMotorPort, leftEncoderPin, rightEncoderPin, cdsCellPin), rps(logger) {
+  sleepStart = 0;
+  sleeping = false;
 }
 
 void Robot::init() {
@@ -34,6 +37,8 @@ void Robot::stop() {
 void Robot::update(double time) {
   drivetrain.update(time);
   rps.update(time);
+  // Update sleep function
+  this->time = time;
 }
 
 void Robot::telemetry() {
@@ -154,6 +159,19 @@ bool Robot::turnRightDegree(float degree, float percent) {
     drivetrain.stop();
     return true;
   }
+}
+
+bool Robot::sleep(double seconds) {
+  if (!sleeping) {
+    sleepStart = time;
+    sleeping = true;
+  } else {
+    if ((time - sleepStart) >= seconds) {
+      sleepStart = 0;
+      sleeping = false;
+    }
+  }
+  return !sleeping;
 }
 
 Drivetrain* Robot::getDrivetrain() {

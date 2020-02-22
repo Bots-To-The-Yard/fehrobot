@@ -16,12 +16,8 @@ namespace program {
     public:
       /**
        * Construct a new BackwardsUpRamp object
-       * 
-       * @param robot A reference to the robot object.
-       * @param course A reference to the course object.
-       * @param logger A reference to the logger object.
        */
-      BackwardsUpRamp(Robot* robot, Course* course, Logger* logger);
+      BackwardsUpRamp();
       void init();
       void loop();
   };

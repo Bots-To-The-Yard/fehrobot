@@ -2,16 +2,24 @@
 #include "FEHLCD.h"
 
 Menu::Menu() {
-  this->programs = nullptr;
   this->program = nullptr;
   this->logger = nullptr;
-  this->programCount = 0;
 }
 
-Menu::Menu(Program** programs, int programCount, Logger* logger) {
-  this->programs = programs;
-  this->programCount = programCount;
+Menu::Menu(Robot* robot, Course* course, Logger* logger) {
+  // Setup the pointers
+  this->robot = robot;
+  this->course = course;
   this->logger = logger;
+}
+
+void Menu::addProgram(Program* program) {
+  // Set the program references
+  program->setRobot(robot);
+  program->setCourse(course);
+  program->setLogger(logger);
+  // Add the program to the vector
+  programs.push_back(program);
 }
 
 void Menu::display() {
@@ -28,7 +36,7 @@ void Menu::display() {
     // Display the list of programs
     logger->debug("Display Program List");
     logger->info("LOADED PROGRAMS:");
-    for (int i = 0; i < programCount; i++) {
+    for (int i = 0; i < programs.size(); i++) {
       LCD.DrawRectangle(5, 40 + (i * 40), 310, 35);
       LCD.WriteAt(programs[i]->getName(), 20, 50 + (i * 40));
       logger->info("%d - %s", i + 1, programs[i]->getName());
@@ -37,7 +45,7 @@ void Menu::display() {
     while (!LCD.Touch(&x, &y));
     // Select the program
     if (y >= 50) {
-      for (int i = 0; i < programCount; i++) {
+      for (int i = 0; i < programs.size(); i++) {
         if (y >= 50 + (i * 40) && y <= 35 + 50 + (i * 40)) {
           // Select the program at the index
           program = programs[i]; 

@@ -2,6 +2,7 @@
 #include <FEHIO.h>
 #include <FEHUtility.h>
 #include <FEHSD.h>
+#include <vector>
 #include "../include/Robot.h"
 #include "../include/Menu.h"
 #include "programs/Exploration02.h"
@@ -10,8 +11,12 @@
 #include "programs/Performance01.h"
 #include "programs/CdSCellTest.h"
 using namespace program;
+using namespace std;
 
 int main() {
+  vector<int> values;
+  values.push_back(2);
+  values.push_back(4);
   // Create a new logger
   Logger logger(Debug);
   // Open the log file
@@ -19,29 +24,13 @@ int main() {
   // Declare the robot and the course
   Course course;
   Robot robot(&logger);
-
-  // Define the programs
-  Exploration02 exploration02(&robot, &course, &logger);
-  DriveForward driveForward(&robot, &course, &logger);
-  BackwardsUpRamp backwardsUpRamp(&robot, &course, &logger);
-  Performance01 performance01(&robot, &course, &logger);
-  CdSCellTest cdsCellTest(&robot, &course, &logger);
-
-  // Define the program array
-  Program* programs[] = {
-    &exploration02,
-    &driveForward,
-    &backwardsUpRamp,
-    &performance01,
-    &cdsCellTest
-  };
-
   // Define the menu
-  Menu menu(programs, 5, &logger);
-
+  Menu menu(&robot, &course, &logger);
+  // Add the programs to the menu
+  menu.addProgram(new Performance01());
+  menu.addProgram(new CdSCellTest());
   // Display the program selection menu
   menu.display();
-
   // Close the log file
   logger.close();
 

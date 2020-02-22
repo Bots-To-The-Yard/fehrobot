@@ -1,7 +1,7 @@
 #include "Exploration02.h"
 using namespace program;
 
-Exploration02::Exploration02(Robot* robot, Course* course, Logger* logger): Program("Exploration 2", robot, course, logger) {
+Exploration02::Exploration02(): Program("Exploration 2") {
   state = 0;
 }
 

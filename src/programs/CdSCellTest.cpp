@@ -1,7 +1,11 @@
 #include "CdSCellTest.h"
 using namespace program;
 
-CdSCellTest::CdSCellTest(Robot* robot, Course* course, Logger* logger): Program("CdS Cell Test", robot, course, logger) {}
+CdSCellTest::CdSCellTest(): Program("CdS Cell Test") {}
+
+void CdSCellTest::init() {
+  Program::init();
+}
 
 void CdSCellTest::loop() {}
 

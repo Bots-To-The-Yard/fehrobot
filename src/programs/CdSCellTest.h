@@ -11,12 +11,9 @@ namespace program {
     public:
       /**
        * Construct a new CdSCellTest object
-       * 
-       * @param robot A reference to the robot object.
-       * @param course A reference to the course object.
-       * @param logger A reference to the Logger object.
        */
-      CdSCellTest(Robot* robot, Course* course, Logger* logger);
+      CdSCellTest();
+      void init();
       void loop();
       void telemetry();
   };

@@ -2,7 +2,7 @@
 #include "FEHUtility.h"
 #include "FEHLCD.h"
 
-Program::Program(char* name, Robot* robot, Course* course, Logger* logger) {
+Program::Program(char* name) {
   this->name = name;
   this->robot = robot;
   this->course = course;
@@ -12,9 +12,22 @@ Program::Program(char* name, Robot* robot, Course* course, Logger* logger) {
   running = false;
 }
 
+void Program::setRobot(Robot* robot) {
+  this->robot = robot;
+}
+
+void Program::setCourse(Course* course) {
+  this->course = course;
+}
+
+void Program::setLogger(Logger* logger) {
+  this->logger = logger;
+}
+
 char* Program::getName() {
   return name;
 }
+
 void Program::init() {
   logger->debug("Initialize Program: %s", name);
   // Initialize the robot
@@ -22,45 +35,6 @@ void Program::init() {
   // Reset running and start time
   running = false;
   startTime = 0;
-}
-
-void Program::run() {
-  run(true);
-}
-
-void Program::telemetry() {}
-
-void Program::run(bool telemetry) {
-  logger->debug("Run Program: %s", name);
-  // Set running to true
-  running = true;
-  // Set the start time
-  startTime = TimeNow();
-  logger->debug("Program Start Time: %f", startTime);
-  // Run the program loop
-  while (running) {
-    float time = TimeNow();
-    // Update the robot
-    robot->update(time - startTime);
-    // Update the course
-    course->update(time - startTime);
-    // Write telemetry
-    if (telemetry) {
-      if ((time - lastTelemetry) > 0.25) {
-        lastTelemetry = TimeNow();
-        LCD.Clear(FEHLCD::Black);
-        // Display the program name at the top
-        LCD.WriteLine(getName());
-        LCD.WriteLine("------------------------");
-        // Have the robot write the telemetry to the screen
-        robot->telemetry();
-        course->telemetry();
-        this->telemetry();
-      }
-    }
-    // Run the program loop function
-    loop();
-  }
 }
 
 void Program::stop() {
@@ -72,4 +46,49 @@ void Program::stop() {
   robot->stop();
   // Stop task execution
   course->stop();
+}
+
+void Program::run() {
+  run(true);
+}
+
+void Program::telemetry() {
+  robot->telemetry();
+  course->telemetry();
+}
+
+void Program::update(double time) {
+  robot->update(time);
+  course->update(time);
+}
+
+void Program::run(bool telemetry) {
+  logger->debug("Run Program: %s", name);
+  // Set running to true
+  running = true;
+  // Set the start time
+  startTime = TimeNow();
+  // Set the last telemetry time
+  lastTelemetry = TimeNow();
+  logger->debug("Program Start Time: %f", startTime);
+  // Run the program loop
+  while (running) {
+    float time = TimeNow();
+    // Update the components
+    this->update(time);
+    // Write telemetry
+    if (telemetry) {
+      if ((time - lastTelemetry) > 0.25) {
+        lastTelemetry = TimeNow();
+        LCD.Clear(FEHLCD::Black);
+        // Display the program name at the top
+        LCD.WriteLine(getName());
+        LCD.WriteLine("--------------------------");
+        // Write the program telemetry
+        this->telemetry();
+      }
+    }
+    // Run the program update function
+    this->loop();
+  }
 }

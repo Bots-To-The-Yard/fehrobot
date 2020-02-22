@@ -2,7 +2,7 @@
 #include <FEHUtility.h>
 using namespace program;
 
-Performance01::Performance01(Robot* robot, Course* course, Logger* logger): Program("Performance 1", robot, course, logger) {
+Performance01::Performance01(): Program("Performance 1") {
   state = -1;
 }
 
@@ -14,6 +14,7 @@ void Performance01::init() {
 }
 
 void Performance01::telemetry() {
+  Program::telemetry();
   logger->telemetry("Program State: %d", state);
 }
 
@@ -27,57 +28,49 @@ void Performance01::loop() {
     case 0:
       // Drive towards the ramp
       if (robot->drive(10, -25)) {
-        Sleep(1.0);
-        state = 1;
+        if (robot->sleep(1.0)) state = 1;
       }
       break;
     case 1:
       // Turn towards the ramp
       if (robot->turnLeftDegree(130, 15)) {
-        Sleep(1.0);
-        state = 2;
+        if (robot->sleep(1.0)) state = 2;
       }
       break;
     case 2:
       // Drive up the ramp
       if (robot->drive(20, 40)) {
-        Sleep(2.0);
-        state = 3;
+        if (robot->sleep(3.0)) state = 3;
       }
       break;
     case 3:
       // Back down ramp
       if (robot->drive(20, -25)) {
-        Sleep(2.0);
-        state = 4;
+        if (robot->sleep(2.0)) state = 3;
       }
       break;
     case 4:
       // Turn left towards the wall
       if (robot->turnLeft(15)) {
-        Sleep(1.0);
-        state = 5;
+        if (robot->sleep(1.0)) state = 3;
       }
       break;
     case 5:
       // Drive towards wall
       if (robot->drive(8.5)) {
-        Sleep(1.0);
-        state = 6;
+        if (robot->sleep(1.0)) state = 3;
       }
       break;
     case 6:
       // Back up from wall
       if (robot->drive(2.3, -15)) {
-        Sleep(1.0);
-        state = 7;
+        if (robot->sleep(1.0)) state = 3;
       }
       break;
     case 7:
       // Turn towards jukebox
       if (robot->turnLeftDegree(80,20)) {
-        Sleep(1.0);
-        state = 8;
+        if (robot->sleep(1.0)) state = 3;
       }
       break;
     case 8:
@@ -93,8 +86,7 @@ void Performance01::loop() {
         robot->getDrivetrain()->setPercent(10);
         // If we see red, hit the red button
         if (robot->getDrivetrain()->getCdsColor() == Red) {
-          Sleep(1.0);
-          state = 11;
+          if (robot->sleep(2.0)) state = 11;
         }
       } else {
         // Assume it's blue
@@ -118,14 +110,12 @@ void Performance01::loop() {
       break;
     case 11:
       if (robot->turnRightDegree(15, 20)) {
-        Sleep(1.0);
-        state = 13;
+        if (robot->sleep(2.0)) state = 13;
       }
       break;
     case 12:
       if (robot->turnLeftDegree(15, 20)) {
-        Sleep(1.0);
-        state = 13;
+        if (robot->sleep(2.0)) state = 13;
       }
       break;
     case 13:

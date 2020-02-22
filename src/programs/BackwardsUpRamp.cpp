@@ -1,7 +1,7 @@
 #include "BackwardsUpRamp.h"
 using namespace program;
 
-BackwardsUpRamp::BackwardsUpRamp(Robot* robot, Course* course, Logger* logger): Program("Backwards Up Ramp", robot, course, logger) {
+BackwardsUpRamp::BackwardsUpRamp(): Program("Backwards Up Ramp") {
   state = 0;
 }
 

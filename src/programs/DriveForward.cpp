@@ -1,7 +1,7 @@
 #include "DriveForward.h"
 using namespace program;
 
-DriveForward::DriveForward(Robot* robot, Course* course, Logger* logger): Program("Turn Right", robot, course, logger) {
+DriveForward::DriveForward(): Program("Turn Right") {
   state = 0;
 }
 

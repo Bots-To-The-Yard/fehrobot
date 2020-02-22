@@ -121,6 +121,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a62a676616efda7f166e7e29ff7039997"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78e8694b4fdd78010ddf955162ef9869"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#a78e8694b4fdd78010ddf955162ef9869">turnRightDegree</a> (float degree, float percent)</td></tr>
 <tr class="separator:a78e8694b4fdd78010ddf955162ef9869"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a735f9bbc5708b0eb887769fed50a6aea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#a735f9bbc5708b0eb887769fed50a6aea">sleep</a> (double seconds)</td></tr>
+<tr class="separator:a735f9bbc5708b0eb887769fed50a6aea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acae899af719a33af7d773f958da2d609"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmodule_1_1_drivetrain.html">Drivetrain</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#acae899af719a33af7d773f958da2d609">getDrivetrain</a> ()</td></tr>
 <tr class="separator:acae899af719a33af7d773f958da2d609"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adac6015a31276a3daa8841ea2972716a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmodule_1_1_r_p_s_module.html">RPSModule</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#adac6015a31276a3daa8841ea2972716a">getRPSModule</a> ()</td></tr>
@@ -529,6 +531,34 @@ false The robot is still following the line. </dd></dl>
 <p>This method is run to preform any initilization tasks before the control loop. </p>
 
 <p>Implements <a class="el" href="class_component.html#a56baf8afdea3366554b3c7b13fd6e3f7">Component</a>.</p>
+
+</div>
+</div>
+<a id="a735f9bbc5708b0eb887769fed50a6aea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a735f9bbc5708b0eb887769fed50a6aea">&#9670;&nbsp;</a></span>sleep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Robot::sleep </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>seconds</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sleep for a number of seconds.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seconds</td><td>The number of seconds to sleep for. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true The sleep has finished. </dd>
+<dd>
+false The sleep is not yet done. </dd></dl>
 
 </div>
 </div>

@@ -8,7 +8,7 @@
 /**
  * A program.
  */
-class Program {
+class Program: public Component {
   private:
     /**
      * The program name.
@@ -20,15 +20,15 @@ class Program {
     bool running;
   protected:
     /**
-     * The logger instance.
+     * The a pointer to the Logger object.
      */
     Logger* logger;
     /**
-     * A reference to the Robot object.
+     * A pointer to the Robot object.
      */
     Robot* robot;
     /**
-     * A reference to the Course object.
+     * A pointer to the Course object.
      */
     Course* course;
     /**
@@ -48,11 +48,26 @@ class Program {
      * Construct a new Program object
      * 
      * @param robot The program name.
-     * @param robot A reference to the Robot.
-     * @param course A reference to the Course.
-     * @param logger A reference to the Logger.
      */
-    Program(char* name, Robot* robot, Course* course, Logger* logger);
+    Program(char* name);
+    /**
+     * Set the the pointer to the Robot object.
+     * 
+     * @param robot The Robot pointer.
+     */
+    void setRobot(Robot* robot);
+    /**
+     * Set the the pointer to the Course object.
+     * 
+     * @param course The Course pointer.
+     */
+    void setCourse(Course* course);
+    /**
+     * Set the the pointer to the Logger object.
+     * 
+     * @param logger The Logger pointer.
+     */
+    void setLogger(Logger* logger);
     /**
      * Get the program name
      * 
@@ -63,6 +78,21 @@ class Program {
      * Initialize the program.
      */
     virtual void init();
+    /**
+     * Stop the program.
+     */
+    void stop();
+    /**
+     * Print program telemetry information to the screen.
+     */
+    virtual void telemetry();
+    /**
+     * Updates the program and other components.
+     * This is the root function that calls the update on all other functions.
+     * 
+     * @param time The time since the program started.
+     */
+    void update(double time);
     /**
      * Run the program.
      * 
@@ -78,11 +108,6 @@ class Program {
      * @param telemetry Enable/disable telemetry.
      */
     void run(bool telemetry);
-    /**
-     * Stop the program.
-     */
-    void stop();
-    virtual void telemetry();
 };
 
 #endif

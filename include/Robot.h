@@ -24,6 +24,18 @@ class Robot: public Module {
      * The robot RPS module.
      */
     RPSModule rps;
+    /**
+     * The current time
+     */
+    double time;
+    /**
+     * When the sleep started.
+     */
+    double sleepStart;
+    /**
+     * Is the robot currently sleeping.
+     */
+    bool sleeping;
   public:
     /**
      * Construct a new Robot object.
@@ -158,6 +170,14 @@ class Robot: public Module {
      * @return false The robot is still turning.
      */
     bool turnRightDegree(float degree, float percent);
+    /**
+     * Sleep for a number of seconds.
+     * 
+     * @param seconds The number of seconds to sleep for.
+     * @return true The sleep has finished.
+     * @return false The sleep is not yet done.
+     */
+    bool sleep(double seconds);
     /**
      * Get a reference to the Drivetrain object.
      * 
