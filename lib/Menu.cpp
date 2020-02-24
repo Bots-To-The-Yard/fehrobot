@@ -26,7 +26,7 @@ void Menu::display() {
   while (true) {
     // Clear the program
     program = nullptr;
-    logger->debug("Display program selection screen");
+    logger->debug("Menu::display", "Display program selection screen");
     // Write the header
     LCD.Clear(FEHLCD::Black);
     LCD.SetFontColor(FEHLCD::Blue);
@@ -34,12 +34,12 @@ void Menu::display() {
     LCD.SetFontColor(FEHLCD::White);
     LCD.WriteAt("Select a Program", 100, 0);
     // Display the list of programs
-    logger->debug("Display Program List");
-    logger->info("LOADED PROGRAMS:");
+    logger->debug("Menu::display", "Display Program List");
+    logger->info("Menu::display", "Loaded Programs:");
     for (int i = 0; i < programs.size(); i++) {
       LCD.DrawRectangle(5, 40 + (i * 40), 310, 35);
       LCD.WriteAt(programs[i]->getName(), 20, 50 + (i * 40));
-      logger->info("%d - %s", i + 1, programs[i]->getName());
+      logger->info("Menu::display", "%d - %s", i + 1, programs[i]->getName());
     }
     // Wait for the user touch
     while (!LCD.Touch(&x, &y));
@@ -54,9 +54,9 @@ void Menu::display() {
       }
     }
     if (program != nullptr) {
-      logger->info("Program %s selected", program->getName());
+      logger->info("Menu::display", "Program %s selected", program->getName());
       // Display the init button
-      logger->debug("Display program init screen");
+      logger->debug("Menu::display", "Display program init screen");
       LCD.Clear(FEHLCD::Black);
       LCD.SetFontColor(FEHLCD::White);
       LCD.WriteLine(program->getName());
@@ -66,10 +66,10 @@ void Menu::display() {
       // Wait for user touch to Initialize the program
       while (!LCD.Touch(&x, &y));
       // Initialize the program
-      logger->debug("Initialize Program");
+      logger->debug("Menu::display", "Initialize Program");
       program->init();
       // Clear the screen and display the run button
-      logger->debug("Display program run screen");
+      logger->debug("Menu::display", "Display program run screen");
       LCD.Clear(FEHLCD::Black);
       LCD.SetFontColor(FEHLCD::White);
       LCD.WriteLine(program->getName());
@@ -79,7 +79,7 @@ void Menu::display() {
       // Wait for user touch to run the program
       while (!LCD.Touch(&x, &y));
       // Run the program
-      logger->info("Run program %s", program->getName());
+      logger->info("Menu::display", "Run Program: %s", program->getName());
       program->run();
     }
   }

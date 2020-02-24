@@ -32,7 +32,7 @@ Drivetrain::Drivetrain(
 }
 
 void Drivetrain::init() {
-  logger->debug("Initialize Drivetrain");
+  logger->debug("Drivetrain::init", "Initialize Drivetrain");
   resetEncoders();
 }
 
@@ -90,7 +90,7 @@ void Drivetrain::telemetry() {
 }
 
 void Drivetrain::stop() {
-  logger->debug("Stop Drivetrain");
+  logger->debug("Drivetrain::stop", "Stop Drivetrain");
   setPercent(0);
   resetEncoders();
 }

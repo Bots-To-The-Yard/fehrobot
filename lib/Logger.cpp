@@ -45,24 +45,26 @@ void Logger::telemetry(const char* format, ...) {
   LCD.WriteLine(buffer);
 }
 
-void Logger::log(LogLevel level, const char* format, va_list args) {
+void Logger::log(LogLevel level, const char* source, const char* format, va_list args) {
   // Print out the timestamp
   sprintf(buffer, "%ld ", TimeNowMSec());
   // Print out the log level
   switch (level) {
     case Debug:
-      sprintf(buffer + strlen(buffer), "DEBUG - ");
+      sprintf(buffer + strlen(buffer), "DEBUG ");
       break;
     case Info:
-      sprintf(buffer + strlen(buffer), "INFO - ");
+      sprintf(buffer + strlen(buffer), "INFO  ");
       break;
     case Warn:
-      sprintf(buffer + strlen(buffer), "WARN - ");
+      sprintf(buffer + strlen(buffer), "WARN  ");
       break;
     case Error:
-      sprintf(buffer + strlen(buffer), "ERROR - ");
+      sprintf(buffer + strlen(buffer), "ERROR ");
       break;
   }
+  // Print out the source
+  sprintf(buffer + strlen(buffer), "[%s] ", source);
   // Print the formatted string
   vsprintf(buffer + strlen(buffer), format, args);
   // Print to the file
@@ -71,30 +73,30 @@ void Logger::log(LogLevel level, const char* format, va_list args) {
   }
 }
 
-void Logger::debug(const char* format, ...) {
+void Logger::debug(const char* source, const char* format, ...) {
   va_list args;
   va_start(args, format);
-  log(Debug, format, args);
+  log(Debug, source, format, args);
   va_end(args);
 }
 
-void Logger::info(const char* format, ...) {
+void Logger::info(const char* source, const char* format, ...) {
   va_list args;
   va_start(args, format);
-  log(Info, format, args);
+  log(Info, source, format, args);
   va_end(args);
 }
 
-void Logger::warn(const char* format, ...) {
+void Logger::warn(const char* source, const char* format, ...) {
   va_list args;
   va_start(args, format);
-  log(Warn, format, args);
+  log(Warn, source, format, args);
   va_end(args);
 }
 
-void Logger::error(const char* format, ...) {
+void Logger::error(const char* source, const char* format, ...) {
   va_list args;
   va_start(args, format);
-  log(Error, format, args);
+  log(Error, source, format, args);
   va_end(args);
 }

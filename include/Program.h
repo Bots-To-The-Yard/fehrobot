@@ -13,7 +13,7 @@ class Program: public Component {
     /**
      * The program name.
      */
-    char* name;
+    const char* name;
     /**
      * Is the program running.
      */
@@ -49,7 +49,7 @@ class Program: public Component {
      * 
      * @param robot The program name.
      */
-    Program(char* name);
+    Program(const char* name);
     /**
      * Set the the pointer to the Robot object.
      * 
@@ -73,7 +73,7 @@ class Program: public Component {
      * 
      * @return The program name
      */
-    char* getName();
+    const char* getName();
     /**
      * Initialize the program.
      */

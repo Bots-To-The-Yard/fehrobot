@@ -47,10 +47,11 @@ namespace util {
        * Logs a string to the output file.
        * 
        * @param level The log level.
+       * @param source The source of the log message.
        * @param format The format for the log.
        * @param args The variable arguments.
        */
-      void log(LogLevel level, const char* format, va_list args);
+      void log(LogLevel level, const char* source, const char* format, va_list args);
     public:
       /**
        * Construct a new Logger object
@@ -83,26 +84,30 @@ namespace util {
       /**
        * Logs a debug string.
        * 
+       * @param source The source of the log message.
        * @param format The format for the log.
        */
-      void debug(const char* format, ...);
+      void debug(const char* source, const char* format, ...);
       /**
        * Logs an info string.
        * 
+       * @param source The source of the log message.
        * @param format The format for the log.
        */
-      void info(const char* format, ...);
+      void info(const char* source, const char* format, ...);
       /**
        * Logs a warn string.
        * 
+       * @param source The source of the log message.
        * @param format The format for the log.
        */
-      void warn(const char* format, ...);
+      void warn(const char* source, const char* format, ...);
       /**
        * Logs an error string.
        * 
+       * @param source The source of the log message.
        * @param format The format for the log.
        */
-      void error(const char* format, ...);
+      void error(const char* source, const char* format, ...);
   };
 };

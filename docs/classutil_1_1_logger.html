@@ -87,14 +87,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a76962587ace804ef14f24f7220a4a688"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4076dbc64d0507b39fbc1ca940a0dc83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1_logger.html#a4076dbc64d0507b39fbc1ca940a0dc83">telemetry</a> (const char *format,...)</td></tr>
 <tr class="separator:a4076dbc64d0507b39fbc1ca940a0dc83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9347bc386518fb29f7da294dedfb995"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1_logger.html#ad9347bc386518fb29f7da294dedfb995">debug</a> (const char *format,...)</td></tr>
-<tr class="separator:ad9347bc386518fb29f7da294dedfb995"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18eed54fc65b0295622924e861fb407c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1_logger.html#a18eed54fc65b0295622924e861fb407c">info</a> (const char *format,...)</td></tr>
-<tr class="separator:a18eed54fc65b0295622924e861fb407c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a498293b221cdb55c0b97cd4a82a55537"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1_logger.html#a498293b221cdb55c0b97cd4a82a55537">warn</a> (const char *format,...)</td></tr>
-<tr class="separator:a498293b221cdb55c0b97cd4a82a55537"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c127ddf10284be7fa51d41ca86d2bd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1_logger.html#a1c127ddf10284be7fa51d41ca86d2bd2">error</a> (const char *format,...)</td></tr>
-<tr class="separator:a1c127ddf10284be7fa51d41ca86d2bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a210e7e96c2e1aa6ea11a71fd5098be67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1_logger.html#a210e7e96c2e1aa6ea11a71fd5098be67">debug</a> (const char *source, const char *format,...)</td></tr>
+<tr class="separator:a210e7e96c2e1aa6ea11a71fd5098be67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27d947a40a23d4b7bd5e1f3eb19decc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1_logger.html#a27d947a40a23d4b7bd5e1f3eb19decc4">info</a> (const char *source, const char *format,...)</td></tr>
+<tr class="separator:a27d947a40a23d4b7bd5e1f3eb19decc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a3b7b2736418792ce797137e9413fe6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1_logger.html#a8a3b7b2736418792ce797137e9413fe6">warn</a> (const char *source, const char *format,...)</td></tr>
+<tr class="separator:a8a3b7b2736418792ce797137e9413fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a638ae6c017d859d6e622376ddbe9ca3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1_logger.html#a638ae6c017d859d6e622376ddbe9ca3d">error</a> (const char *source, const char *format,...)</td></tr>
+<tr class="separator:a638ae6c017d859d6e622376ddbe9ca3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A logger. </p>
@@ -143,8 +143,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad9347bc386518fb29f7da294dedfb995"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9347bc386518fb29f7da294dedfb995">&#9670;&nbsp;</a></span>debug()</h2>
+<a id="a210e7e96c2e1aa6ea11a71fd5098be67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a210e7e96c2e1aa6ea11a71fd5098be67">&#9670;&nbsp;</a></span>debug()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -152,6 +152,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Logger::debug </td>
           <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>format</em>, </td>
         </tr>
@@ -171,6 +177,7 @@ Public Member Functions</h2></td></tr>
 <p>Logs a debug string.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">source</td><td>The source of the log message. </td></tr>
     <tr><td class="paramname">format</td><td>The format for the log. </td></tr>
   </table>
   </dd>
@@ -178,8 +185,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a1c127ddf10284be7fa51d41ca86d2bd2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c127ddf10284be7fa51d41ca86d2bd2">&#9670;&nbsp;</a></span>error()</h2>
+<a id="a638ae6c017d859d6e622376ddbe9ca3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a638ae6c017d859d6e622376ddbe9ca3d">&#9670;&nbsp;</a></span>error()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -187,6 +194,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Logger::error </td>
           <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>format</em>, </td>
         </tr>
@@ -206,6 +219,7 @@ Public Member Functions</h2></td></tr>
 <p>Logs an error string.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">source</td><td>The source of the log message. </td></tr>
     <tr><td class="paramname">format</td><td>The format for the log. </td></tr>
   </table>
   </dd>
@@ -213,8 +227,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a18eed54fc65b0295622924e861fb407c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18eed54fc65b0295622924e861fb407c">&#9670;&nbsp;</a></span>info()</h2>
+<a id="a27d947a40a23d4b7bd5e1f3eb19decc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27d947a40a23d4b7bd5e1f3eb19decc4">&#9670;&nbsp;</a></span>info()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -222,6 +236,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Logger::info </td>
           <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>format</em>, </td>
         </tr>
@@ -241,6 +261,7 @@ Public Member Functions</h2></td></tr>
 <p>Logs an info string.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">source</td><td>The source of the log message. </td></tr>
     <tr><td class="paramname">format</td><td>The format for the log. </td></tr>
   </table>
   </dd>
@@ -333,8 +354,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a498293b221cdb55c0b97cd4a82a55537"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a498293b221cdb55c0b97cd4a82a55537">&#9670;&nbsp;</a></span>warn()</h2>
+<a id="a8a3b7b2736418792ce797137e9413fe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a3b7b2736418792ce797137e9413fe6">&#9670;&nbsp;</a></span>warn()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -342,6 +363,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Logger::warn </td>
           <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>format</em>, </td>
         </tr>
@@ -361,6 +388,7 @@ Public Member Functions</h2></td></tr>
 <p>Logs a warn string.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">source</td><td>The source of the log message. </td></tr>
     <tr><td class="paramname">format</td><td>The format for the log. </td></tr>
   </table>
   </dd>

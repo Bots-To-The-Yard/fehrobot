@@ -8,7 +8,7 @@ Performance01::Performance01(): Program("Performance 1") {
 
 void Performance01::init() {
   Program::init();
-  logger->debug("Set state to 0");
+  logger->debug("Performance01::init", "Set state to 0");
   // Reset the state to 0
   state = -1;
 }

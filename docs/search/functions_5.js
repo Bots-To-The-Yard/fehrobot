@@ -13,7 +13,7 @@ var searchData=
   ['getleftcounts_115',['getLeftCounts',['../classmodule_1_1_drivetrain.html#adae9925813d91f339d4e7dce6c0f9f7e',1,'module::Drivetrain']]],
   ['getleftdistance_116',['getLeftDistance',['../classmodule_1_1_drivetrain.html#abc1ebb8dfd03931a89c80d6ddcf17ccd',1,'module::Drivetrain']]],
   ['getlinestate_117',['getLineState',['../classmodule_1_1_drivetrain.html#af980bda8d19d7cb2d48c86835f2e5bc7',1,'module::Drivetrain::getLineState()'],['../class_waypoint.html#adebd7c37e1aa937e79b628fe8677a6c3',1,'Waypoint::getLineState()']]],
-  ['getname_118',['getName',['../class_program.html#a784939176b8972d0a18a96f8a6045bd1',1,'Program']]],
+  ['getname_118',['getName',['../class_program.html#ae85b9c042ae9e608c2a9dd42bea9f754',1,'Program']]],
   ['getnumber_119',['getNumber',['../class_course.html#aff85ec524cd287785257ca0dbf706838',1,'Course']]],
   ['getregion_120',['getRegion',['../class_course.html#a6a5dad2430ce5e34ae4a97739e3ef8ca',1,'Course']]],
   ['getrightcounts_121',['getRightCounts',['../classmodule_1_1_drivetrain.html#a5b389d4ce61e3480e47b474689e5ce89',1,'module::Drivetrain']]],

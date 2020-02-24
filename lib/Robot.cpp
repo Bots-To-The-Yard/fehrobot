@@ -22,14 +22,14 @@ Robot::Robot(
 }
 
 void Robot::init() {
-  logger->debug("Initialize Robot");
-  logger->info("Battery Voltage: %4.2f", Battery.Voltage());
+  logger->debug("Robot::init", "Initialize Robot");
+  logger->info("Robot::init", "Battery Voltage: %4.2f", Battery.Voltage());
   // rps.init();
   drivetrain.init();
 }
 
 void Robot::stop() {
-  logger->debug("Stop Robot");
+  logger->debug("Robot::stop", "Stop Robot");
   drivetrain.stop();
   rps.stop();
 }
