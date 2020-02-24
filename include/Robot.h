@@ -171,7 +171,7 @@ class Robot: public Module {
      * @return true The robot has turned.
      * @return false The robot is still turning.
      */
-    bool turnRight(int angle, float degree);
+    bool turnRight(int angle, float percent);
     /**
      * Sleep for a number of seconds.
      * 
