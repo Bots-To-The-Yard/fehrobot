@@ -125,51 +125,53 @@ class Robot: public Module {
      */
     bool driveUntilLine(float percent);
     /**
-     * Turn the robot left at the default speed.
+     * Turn the robot left 90 degrees at the default speed.
      * 
      * @return true The robot has turned.
      * @return false The robot is still turning.
      */
     bool turnLeft();
     /**
+     * Turn the robot left at the default speed.
+     * 
+     * @param angle The desired angle to turn.
+     * @return true The robot has turned.
+     * @return false The robot is still turning.
+     */
+    bool turnLeft(int angle);
+    /**
      * Turn the robot left.
      * 
+     * @param angle The desired angle to turn.
      * @param percent The maximum motor percent.
      * @return true The robot has turned.
      * @return false The robot is still turning.
      */
-    bool turnLeft(float percent);
+    bool turnLeft(int angle, float percent);
     /**
-     * Turn the robot left.
-     * 
-     * @param degree The desired angle to turn.
-     * @return true The robot has turned desired angle.
-     * @return false The robot is still turning.
-     */
-    bool turnLeftDegree(float degree, float percent);
-    /**
-     * Turn the right at the default speed.
+     * Turn the right 90 degrees at the default speed.
      * 
      * @return true The robot has turned.
      * @return false The robot is still turning.
      */
     bool turnRight();
     /**
+     * Turn the robot right at the default speed.
+     * 
+     * @param angle The desired angle to turn.
+     * @return true The robot has turned.
+     * @return false The robot is still turning.
+     */
+    bool turnRight(int angle);
+    /**
      * Turn the robot right.
      * 
+     * @param angle The desired angle to turn.
      * @param percent The maximum motor percent.
      * @return true The robot has turned.
      * @return false The robot is still turning.
      */
-    bool turnRight(float percent);
-    /**
-     * Turn the robot right.
-     * 
-     * @param degree The desired angle to turn.
-     * @return true The robot has turned desired angle.
-     * @return false The robot is still turning.
-     */
-    bool turnRightDegree(float degree, float percent);
+    bool turnRight(int angle, float degree);
     /**
      * Sleep for a number of seconds.
      * 

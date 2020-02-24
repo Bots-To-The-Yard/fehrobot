@@ -18,7 +18,7 @@ void Exploration02::loop() {
         state = 1;
       break;
     case 1:
-      if (robot->turnLeft(40))
+      if (robot->turnLeft(90, 40))
         state = 2;
       break;
     case 2:
@@ -26,7 +26,7 @@ void Exploration02::loop() {
         state = 3;
       break;
     case 3:
-      if (robot->turnRight(60))
+      if (robot->turnRight(90, 60))
         state = 4;
       break;
     case 4:

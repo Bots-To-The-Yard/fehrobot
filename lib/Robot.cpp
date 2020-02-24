@@ -110,22 +110,15 @@ bool Robot::driveUntilLine(float percent) {
 }
 
 bool Robot::turnLeft() {
-  return turnLeft(DEFAULT_PERCENT);
+  return turnLeft(90, DEFAULT_PERCENT);
 }
 
-bool Robot::turnLeft(float percent) {
-  if (drivetrain.getAverageDistance() <= TURN_DISTANCE) {
-    drivetrain.setLeftPercent(-percent);
-    drivetrain.setRightPercent(percent);
-    return false;
-  } else {
-    drivetrain.stop();
-    return true;
-  }
+bool Robot::turnLeft(int angle) {
+  return turnLeft(angle, DEFAULT_PERCENT);
 }
 
-bool Robot::turnLeftDegree(float degree, float percent) {
-   if (drivetrain.getAverageDistance() <= (degree / 90) * TURN_DISTANCE) {
+bool Robot::turnLeft(int angle, float percent) {
+   if (drivetrain.getAverageDistance() <= (double(angle) / 90) * TURN_DISTANCE) {
     drivetrain.setLeftPercent(-percent);
     drivetrain.setRightPercent(percent);
     return false;
@@ -136,22 +129,15 @@ bool Robot::turnLeftDegree(float degree, float percent) {
 }
 
 bool Robot::turnRight() {
-  return turnRight(DEFAULT_PERCENT);
+  return turnRight(90, DEFAULT_PERCENT);
 }
 
-bool Robot::turnRight(float percent) {
-  if (drivetrain.getAverageDistance() <= TURN_DISTANCE) {
-    drivetrain.setLeftPercent(percent);
-    drivetrain.setRightPercent(-percent);
-    return false;
-  } else {
-    drivetrain.stop();
-    return true;
-  }
+bool Robot::turnRight(int angle) {
+  return turnRight(angle, DEFAULT_PERCENT);
 }
 
-bool Robot::turnRightDegree(float degree, float percent) {
-  if (drivetrain.getAverageDistance() <= (degree / 90) * TURN_DISTANCE) {
+bool Robot::turnRight(int angle, float percent) {
+  if (drivetrain.getAverageDistance() <= (double(angle) / 90) * TURN_DISTANCE) {
     drivetrain.setLeftPercent(percent);
     drivetrain.setRightPercent(-percent);
     return false;

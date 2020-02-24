@@ -33,7 +33,7 @@ void Performance01::loop() {
       break;
     case 1:
       // Turn towards the ramp
-      if (robot->turnLeftDegree(130, 15)) {
+      if (robot->turnLeft(130, 15)) {
         if (robot->sleep(1.0)) state = 2;
       }
       break;
@@ -69,7 +69,7 @@ void Performance01::loop() {
       break;
     case 7:
       // Turn towards jukebox
-      if (robot->turnLeftDegree(80,20)) {
+      if (robot->turnLeft(80, 20)) {
         if (robot->sleep(1.0)) state = 3;
       }
       break;
@@ -109,12 +109,12 @@ void Performance01::loop() {
       }*/
       break;
     case 11:
-      if (robot->turnRightDegree(15, 20)) {
+      if (robot->turnRight(15, 20)) {
         if (robot->sleep(2.0)) state = 13;
       }
       break;
     case 12:
-      if (robot->turnLeftDegree(15, 20)) {
+      if (robot->turnLeft(15, 20)) {
         if (robot->sleep(2.0)) state = 13;
       }
       break;
