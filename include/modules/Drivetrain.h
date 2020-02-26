@@ -6,14 +6,14 @@
 #include <FEHSD.h>
 #include "../Module.h"
 
-#define WHEEL_CIRCUMFERENCE 2.5
-#define COUNTS_PER_ROTATION 318.0
-#define PI 3.14159265359
-#define LEFT_VOLTAGE 2.1
-#define CENTER_VOLTAGE 2.1
-#define RIGHT_VOLTAGE 2.1
-#define RED_VOLTAGE 0.5
-#define BLUE_VOLTAGE 0.8
+#define WHEEL_CIRCUMFERENCE 2.5f
+#define COUNTS_PER_ROTATION 318.0f
+#define PI 3.14159265359f
+#define LEFT_VOLTAGE 2.1f
+#define CENTER_VOLTAGE 2.1f
+#define RIGHT_VOLTAGE 2.1f
+#define RED_VOLTAGE 0.5f
+#define BLUE_VOLTAGE 0.8f
 
 /**
  * The line detection state.

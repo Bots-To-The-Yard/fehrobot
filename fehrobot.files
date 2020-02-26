@@ -15,3 +15,4 @@ src/programs/DriveForward.cpp
 src/programs/BackwardsUpRamp.cpp
 src/programs/Performance01.cpp
 src/programs/CdSCellTest.cpp
+src/programs/Performance02.cpp
