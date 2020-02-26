@@ -148,6 +148,30 @@ class Robot: public Module {
      * @return false The robot is still turning.
      */
     bool turnLeft(float angle, float percent);
+           /**
+     * Turn the right 90 degrees at the default speed using only one wheel.
+     * 
+     * @return true The robot has turned.
+     * @return false The robot is still turning.
+     */
+    bool turnLeftWide();
+    /**
+     * Turn the robot left at the default speed using only one wheel.
+     * 
+     * @param angle The desired angle to turn.
+     * @return true The robot has turned.
+     * @return false The robot is still turning.
+     */
+    bool turnLeftWide(float angle);
+    /**
+     * Turn the robot left using only one wheel.
+     * 
+     * @param angle The desired angle to turn.
+     * @param percent The maximum motor percent.
+     * @return true The robot has turned.
+     * @return false The robot is still turning.
+     */
+    bool turnLeftWide(float angle, float degree);
     /**
      * Turn the right 90 degrees at the default speed.
      * 
@@ -172,6 +196,30 @@ class Robot: public Module {
      * @return false The robot is still turning.
      */
     bool turnRight(float angle, float degree);
+       /**
+     * Turn the right 90 degrees at the default speed using only one wheel.
+     * 
+     * @return true The robot has turned.
+     * @return false The robot is still turning.
+     */
+    bool turnRightWide();
+    /**
+     * Turn the robot right at the default speed using only one wheel.
+     * 
+     * @param angle The desired angle to turn.
+     * @return true The robot has turned.
+     * @return false The robot is still turning.
+     */
+    bool turnRightWide(float angle);
+    /**
+     * Turn the robot right using only one wheel.
+     * 
+     * @param angle The desired angle to turn.
+     * @param percent The maximum motor percent.
+     * @return true The robot has turned.
+     * @return false The robot is still turning.
+     */
+    bool turnRightWide(float angle, float degree);
     /**
      * Sleep for a number of seconds.
      * 

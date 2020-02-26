@@ -127,6 +127,24 @@ bool Robot::turnLeft(float angle, float percent) {
   }
 }
 
+bool Robot::turnLeftWide() {
+  return turnLeftWide(90, DEFAULT_PERCENT);
+}
+
+bool Robot::turnLeftWide(float angle) {
+  return turnLeftWide(angle, DEFAULT_PERCENT);
+}
+
+bool Robot::turnLeftWide(float angle, float percent) {
+  if (drivetrain.getRightDistance() <= (angle / 90) * (TURN_DISTANCE * 2)) {
+    drivetrain.setRightPercent(percent);
+    return false;
+  } else {
+    drivetrain.stop();
+    return true;
+  }
+}
+
 bool Robot::turnRight() {
   return turnRight(90, DEFAULT_PERCENT);
 }
@@ -139,6 +157,24 @@ bool Robot::turnRight(float angle, float percent) {
   if (drivetrain.getAverageDistance() <= (angle / 90) * TURN_DISTANCE) {
     drivetrain.setLeftPercent(percent);
     drivetrain.setRightPercent(-percent);
+    return false;
+  } else {
+    drivetrain.stop();
+    return true;
+  }
+}
+
+bool Robot::turnRightWide() {
+  return turnRightWide(90, DEFAULT_PERCENT);
+}
+
+bool Robot::turnRightWide(float angle) {
+  return turnRightWide(angle, DEFAULT_PERCENT);
+}
+
+bool Robot::turnRightWide(float angle, float percent) {
+  if (drivetrain.getLeftDistance() <= (angle / 90) * (TURN_DISTANCE * 2)) {
+    drivetrain.setLeftPercent(percent);
     return false;
   } else {
     drivetrain.stop();
