@@ -28,16 +28,18 @@ void Performance02::loop() {
     case 0:
       // Drive towards the ramp
       if (robot->drive(10, -25)) {
-        /*if (robot->sleep(1.0))*/ 
-        state = 1;
+        if (robot->sleep(1.0)) {
+          state = 1;
+        }
       }
       break;
     case 1:
       // Turn towards the ramp
       //Sleep(2.0);
-      if (robot->turnLeft(90, 25)) {
-        //if (robot->sleep(1.0)) 
-        state = 2;
+      if (robot->turnLeft(90.0, 25)) {
+        if (robot->sleep(1.0)) {
+          state = 2;
+        }
       }
       break;
     // case 2:

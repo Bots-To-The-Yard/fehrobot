@@ -9,7 +9,7 @@
 using namespace module;
 
 #define DEFAULT_PERCENT 15
-#define TURN_DISTANCE 2.8f
+#define TURN_DISTANCE 6
 
 /**
  * The robot.
@@ -149,22 +149,6 @@ class Robot: public Module {
      */
     bool turnLeft(float angle, float percent);
     /**
-     * Turn the robot left.
-     * 
-     * @param angle The desired angle to turn.
-     * @return true The robot has turned.
-     * @return false The robot is still turning.
-     */
-    bool turnLeftOnly(float angle);
-    /**
-     * Turn the robot right.
-     * 
-     * @param angle The desired angle to turn.
-     * @return true The robot has turned.
-     * @return false The robot is still turning.
-     */
-    bool turnRightOnly(float angle);
-    /**
      * Turn the right 90 degrees at the default speed.
      * 
      * @return true The robot has turned.
@@ -187,7 +171,7 @@ class Robot: public Module {
      * @return true The robot has turned.
      * @return false The robot is still turning.
      */
-    bool turnRight(float angle, float percent);
+    bool turnRight(float angle, float degree);
     /**
      * Sleep for a number of seconds.
      * 

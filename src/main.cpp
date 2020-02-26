@@ -29,7 +29,7 @@ int main() {
   Menu menu(&robot, &course, &logger);
   // Add the programs to the menu
   menu.addProgram(new Performance01());
-  menu.addProgram(new CdSCellTest());
+  menu.addProgram(new DriveForward());
   menu.addProgram(new Performance02());
   // Display the program selection menu
   menu.display();

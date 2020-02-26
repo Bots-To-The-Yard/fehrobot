@@ -78,7 +78,7 @@ void Program::run(bool telemetry) {
     this->update(time);
     // Write telemetry
     if (telemetry) {
-      if ((time - lastTelemetry) > 0.25) {
+      if ((time - lastTelemetry) > 0.15) {
         lastTelemetry = TimeNow();
         LCD.Clear(FEHLCD::Black);
         // Display the program name at the top

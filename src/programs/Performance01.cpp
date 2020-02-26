@@ -28,55 +28,63 @@ void Performance01::loop() {
     case 0:
       // Drive towards the ramp
       if (robot->drive(10, -25)) {
-        if (robot->sleep(1.0)) state = 1;
+        Sleep(1.0);
+        state = 1;
       }
       break;
     case 1:
       // Turn towards the ramp
       if (robot->turnLeft(130, 15)) {
-        if (robot->sleep(1.0)) state = 2;
+        Sleep(1.0);
+        state = 2;
       }
       break;
     case 2:
       // Drive up the ramp
       if (robot->drive(20, 40)) {
-        if (robot->sleep(3.0)) state = 3;
+        Sleep(1.0);
+        state = 3;
       }
       break;
     case 3:
       // Back down ramp
       if (robot->drive(20, -25)) {
-        if (robot->sleep(2.0)) state = 3;
+        Sleep(1.0);
+        state = 3;
       }
       break;
     case 4:
       // Turn left towards the wall
-      if (robot->turnLeft(15)) {
-        if (robot->sleep(1.0)) state = 3;
+      if (robot->turnLeft(15.0)) {
+        Sleep(1.0);
+        state = 3;
       }
       break;
     case 5:
       // Drive towards wall
       if (robot->drive(8.5)) {
-        if (robot->sleep(1.0)) state = 3;
+        Sleep(1.0);
+        state = 3;
       }
       break;
     case 6:
       // Back up from wall
       if (robot->drive(2.3, -15)) {
-        if (robot->sleep(1.0)) state = 3;
+        Sleep(1.0);
+        state = 3;
       }
       break;
     case 7:
       // Turn towards jukebox
       if (robot->turnLeft(80, 20)) {
-        if (robot->sleep(1.0)) state = 3;
+        Sleep(1.0);
+        state = 3;
       }
       break;
     case 8:
       // Drive towards light
       if (robot->drive(2, -15)) {
-        robot->stop();
+        Sleep(1.0);
         state = 9;
       }
       break;
@@ -86,7 +94,8 @@ void Performance01::loop() {
         robot->getDrivetrain()->setPercent(10);
         // If we see red, hit the red button
         if (robot->getDrivetrain()->getCdsColor() == Red) {
-          if (robot->sleep(2.0)) state = 11;
+          Sleep(2.0);
+          state = 11;
         }
       } else {
         // Assume it's blue
@@ -110,12 +119,14 @@ void Performance01::loop() {
       break;
     case 11:
       if (robot->turnRight(15, 20)) {
-        if (robot->sleep(2.0)) state = 13;
+        Sleep(2.0);
+        state = 13;
       }
       break;
     case 12:
       if (robot->turnLeft(15, 20)) {
-        if (robot->sleep(2.0)) state = 13;
+        Sleep(2.0);
+        state = 13;
       }
       break;
     case 13:

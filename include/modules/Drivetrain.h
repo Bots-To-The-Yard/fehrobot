@@ -6,8 +6,8 @@
 #include <FEHSD.h>
 #include "../Module.h"
 
-#define WHEEL_CIRCUMFERENCE 2.5f
-#define COUNTS_PER_ROTATION 318.0f
+#define WHEEL_DIAMETER 3.0
+#define COUNTS_PER_ROTATION 318
 #define PI 3.14159265359f
 #define LEFT_VOLTAGE 2.1f
 #define CENTER_VOLTAGE 2.1f

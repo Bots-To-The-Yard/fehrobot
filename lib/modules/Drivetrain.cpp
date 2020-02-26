@@ -90,7 +90,6 @@ void Drivetrain::telemetry() {
 }
 
 void Drivetrain::stop() {
-  logger->debug("Drivetrain::stop", "Stop Drivetrain");
   setPercent(0);
   resetEncoders();
 }
@@ -155,11 +154,11 @@ int Drivetrain::getCountDelta() {
 }
 
 float Drivetrain::getLeftDistance() {
-  return (PI * WHEEL_CIRCUMFERENCE * getLeftCounts()) / COUNTS_PER_ROTATION;
+  return (PI * WHEEL_DIAMETER * getLeftCounts()) / COUNTS_PER_ROTATION;
 }
 
 float Drivetrain::getRightDistance() {
-  return (PI * WHEEL_CIRCUMFERENCE * getRightCounts()) / COUNTS_PER_ROTATION;
+  return (PI * WHEEL_DIAMETER * getRightCounts()) / COUNTS_PER_ROTATION;
 }
 
 float Drivetrain::getAverageDistance() {
