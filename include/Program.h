@@ -87,13 +87,6 @@ class Program: public Component {
      */
     virtual void telemetry();
     /**
-     * Updates the program and other components.
-     * This is the root function that calls the update on all other functions.
-     * 
-     * @param time The time since the program started.
-     */
-    void update(double time);
-    /**
      * Run the program.
      * 
      * @param robot A reference to the Robot object.

@@ -22,13 +22,6 @@ class Component {
      * Print telemetry information to the screen.
      */
     virtual void telemetry() = 0;
-    /**
-     * Update the component with the current time.
-     * This method should be run each time the control loop runs.
-     * 
-     * @param time The time since the program/segment started.
-     */
-    virtual void update(double time) = 0;
 };
 
 #endif

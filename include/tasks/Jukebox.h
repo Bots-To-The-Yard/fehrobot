@@ -20,7 +20,6 @@ namespace task {
       Jukebox(Waypoint* waypoint);
       void init();
       void stop();
-      void update(double time);
       void telemetry();
       bool align();
       bool execute();

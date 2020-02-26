@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['drivetrain_83',['Drivetrain',['../classmodule_1_1_drivetrain.html',1,'module']]]
+  ['component_78',['Component',['../class_component.html',1,'']]],
+  ['course_79',['Course',['../class_course.html',1,'']]]
 ];

@@ -21,9 +21,9 @@ class Robot: public Module {
      */
     Drivetrain drivetrain;
     /**
-     * The robot RPS module.
+     * The robot arm module.
      */
-    RPSModule rps;
+    Arm arm;
     /**
      * The current time
      */
@@ -55,6 +55,7 @@ class Robot: public Module {
      * @param leftEncoderPin The left encoder pin.
      * @param rightEncoderPin The right encoder pin.
      * @param cdsCellPin The CdS cell Pin
+     * @param armPort The arm servo port.
      */
     Robot(
       Logger* logger,
@@ -65,11 +66,11 @@ class Robot: public Module {
       FEHMotor::FEHMotorPort rightMotorPort,
       FEHIO::FEHIOPin leftEncoderPin,
       FEHIO::FEHIOPin rightEncoderPin,
-      FEHIO::FEHIOPin cdsCellPin
+      FEHIO::FEHIOPin cdsCellPin,
+      FEHServo::FEHServoPort armPort
     );
     void init();
     void stop();
-    void update(double time);
     void telemetry();
     /**
      * Follow a black line at the default speed.
@@ -234,12 +235,6 @@ class Robot: public Module {
      * @return Drivetrain* 
      */
     Drivetrain* getDrivetrain();
-    /**
-     * Get a reference to the RPSModule object.
-     * 
-     * @return RPSModule* 
-     */
-    RPSModule* getRPSModule();
 };
 
 #endif

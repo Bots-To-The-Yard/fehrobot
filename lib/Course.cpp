@@ -17,10 +17,6 @@ void Course::telemetry() {
   jukebox.telemetry();
 }
 
-void Course::update(double time) {
-  jukebox.update(time);
-}
-
 int Course::getTime() {
   return RPS.Time();
 }

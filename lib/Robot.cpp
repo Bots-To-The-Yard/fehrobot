@@ -1,7 +1,8 @@
 #include "../include/Robot.h"
 #include <FEHBattery.h>
+#include <FEHRPS.h>
 
-Robot::Robot(Logger* logger): Module(logger), drivetrain(logger), rps(logger) {
+Robot::Robot(Logger* logger): Module(logger), drivetrain(logger), arm(logger) {
   sleepStart = 0;
   sleeping = false;
 }
@@ -15,8 +16,13 @@ Robot::Robot(
   FEHMotor::FEHMotorPort rightMotorPort,
   FEHIO::FEHIOPin leftEncoderPin,
   FEHIO::FEHIOPin rightEncoderPin,
-  FEHIO::FEHIOPin cdsCellPin
-): Module(logger), drivetrain(logger, leftPin, centerPin, rightPin, leftMotorPort, rightMotorPort, leftEncoderPin, rightEncoderPin, cdsCellPin), rps(logger) {
+  FEHIO::FEHIOPin cdsCellPin,
+  FEHServo::FEHServoPort armPort
+): 
+ Module(logger), 
+ drivetrain(logger, leftPin, centerPin, rightPin, leftMotorPort, rightMotorPort, leftEncoderPin, rightEncoderPin, cdsCellPin),
+ arm(logger, armPort)
+{
   sleepStart = 0;
   sleeping = false;
 }
@@ -24,25 +30,22 @@ Robot::Robot(
 void Robot::init() {
   logger->debug("Robot::init", "Initialize Robot");
   logger->info("Robot::init", "Battery Voltage: %4.2f", Battery.Voltage());
-  // rps.init();
+  RPS.InitializeTouchMenu();
   drivetrain.init();
+  arm.init();
 }
 
 void Robot::stop() {
   drivetrain.stop();
-  rps.stop();
-}
-
-void Robot::update(double time) {
-  drivetrain.update(time);
-  rps.update(time);
-  // Update sleep function
-  this->time = time;
+  arm.stop();
 }
 
 void Robot::telemetry() {
   drivetrain.telemetry();
-  rps.telemetry();
+  arm.telemetry();
+  logger->telemetry("RPS X: %f", RPS.X());
+  logger->telemetry("RPS Y: %f", RPS.Y());
+  logger->telemetry("RPS Heading: %f", RPS.Heading());
 }
 
 void Robot::followLine() {
@@ -197,8 +200,4 @@ bool Robot::sleep(double seconds) {
 
 Drivetrain* Robot::getDrivetrain() {
   return &drivetrain;
-}
-
-RPSModule* Robot::getRPSModule() {
-  return &rps;
 }

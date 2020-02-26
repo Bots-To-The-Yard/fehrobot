@@ -3,7 +3,7 @@ lib/Program.cpp
 lib/Robot.cpp
 lib/Waypoint.cpp
 lib/modules/Drivetrain.cpp
-lib/modules/RPSModule.cpp
+lib/modules/Arm.cpp
 lib/Course.cpp
 lib/Task.cpp
 lib/tasks/Jukebox.cpp

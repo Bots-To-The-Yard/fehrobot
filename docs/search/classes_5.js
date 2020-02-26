@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['menu_86',['Menu',['../class_menu.html',1,'']]],
-  ['module_87',['Module',['../class_module.html',1,'']]]
+  ['logger_82',['Logger',['../classutil_1_1_logger.html',1,'util']]]
 ];

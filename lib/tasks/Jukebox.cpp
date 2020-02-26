@@ -9,8 +9,6 @@ void Jukebox::init() {}
 
 void Jukebox::stop() {}
 
-void Jukebox::update(double time) {}
-
 void Jukebox::telemetry() {}
 
 bool Jukebox::align() {}

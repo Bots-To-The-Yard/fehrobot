@@ -1,10 +1,8 @@
 #include "../include/modules/Drivetrain.h"
-#include "FEHLCD.h"
+#include <FEHLCD.h>
 using namespace module;
 
-Drivetrain::Drivetrain(Logger* logger): Module(logger), leftOpto(FEHIO::P1_0), centerOpto(FEHIO::P1_1), rightOpto(FEHIO::P1_2), left(FEHMotor::Motor0, 9.0), right(FEHMotor::Motor1, 9.0), leftEncoder(FEHIO::P0_0), rightEncoder(FEHIO::P0_1), cdsCell(FEHIO::P2_0) {
-  lineState = NoLine;
-}
+Drivetrain::Drivetrain(Logger* logger): Module(logger), leftOpto(FEHIO::P1_0), centerOpto(FEHIO::P1_1), rightOpto(FEHIO::P1_2), left(FEHMotor::Motor0, 9.0), right(FEHMotor::Motor1, 9.0), leftEncoder(FEHIO::P0_0), rightEncoder(FEHIO::P0_1), cdsCell(FEHIO::P2_0) {}
 
 Drivetrain::Drivetrain(
   Logger* logger,
@@ -28,7 +26,6 @@ Drivetrain::Drivetrain(
   cdsCell(cdsCellPin)
 {
   this->logFile = logFile;
-  lineState = NoLine;
 }
 
 void Drivetrain::init() {
@@ -36,24 +33,9 @@ void Drivetrain::init() {
   resetEncoders();
 }
 
-void Drivetrain::update(double time) {
-  // Update the line state
-  if (leftOpto.Value() > LEFT_VOLTAGE && centerOpto.Value() > CENTER_VOLTAGE && rightOpto.Value() > RIGHT_VOLTAGE) {
-    lineState = AtLine;
-  } else if (leftOpto.Value() > LEFT_VOLTAGE) {
-    lineState = RightOfLine;
-  } else if (rightOpto.Value() > RIGHT_VOLTAGE) {
-    lineState = LeftOfLine;
-  } else if (centerOpto.Value() > CENTER_VOLTAGE) {
-    lineState = OnLine;
-  } else {
-    lineState = NoLine;
-  }
-}
-
 void Drivetrain::telemetry() {
   // TODO: Print current encoder counts to screen
-  switch (lineState) {
+  switch (getLineState()) {
     case OnLine: {
       logger->telemetry("Line State: ON LINE");
       break;
@@ -109,7 +91,17 @@ void Drivetrain::setRightPercent(float percent) {
 }
 
 LineState Drivetrain::getLineState() {
-  return lineState;
+  if (leftOpto.Value() > LEFT_VOLTAGE && centerOpto.Value() > CENTER_VOLTAGE && rightOpto.Value() > RIGHT_VOLTAGE) {
+    return AtLine;
+  } else if (leftOpto.Value() > LEFT_VOLTAGE) {
+    return RightOfLine;
+  } else if (rightOpto.Value() > RIGHT_VOLTAGE) {
+    return LeftOfLine;
+  } else if (centerOpto.Value() > CENTER_VOLTAGE) {
+    return OnLine;
+  } else {
+    return NoLine;
+  }
 }
 
 CdsColor Drivetrain::getCdsColor() {

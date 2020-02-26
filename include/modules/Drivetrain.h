@@ -3,7 +3,6 @@
 
 #include <FEHMotor.h>
 #include <FEHIO.h>
-#include <FEHSD.h>
 #include "../Module.h"
 
 #define WHEEL_DIAMETER 3.0
@@ -62,10 +61,6 @@ namespace module {
        */
       DigitalEncoder rightEncoder;
       /**
-       * The line state.
-       */
-      LineState lineState;
-      /**
        * The left analog optosensor.
        */
       AnalogInputPin leftOpto;
@@ -114,7 +109,6 @@ namespace module {
       );
       void init();
       void stop();
-      void update(double time);
       void telemetry();
       /**
        * Set the percent for all motors.

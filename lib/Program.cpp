@@ -1,6 +1,6 @@
 #include "../include/Program.h"
-#include "FEHUtility.h"
-#include "FEHLCD.h"
+#include <FEHUtility.h>
+#include <FEHLCD.h>
 
 Program::Program(const char* name) {
   this->name = name;
@@ -57,11 +57,6 @@ void Program::telemetry() {
   course->telemetry();
 }
 
-void Program::update(double time) {
-  robot->update(time);
-  course->update(time);
-}
-
 void Program::run(bool telemetry) {
   logger->debug("Program::run", "Run Program: %s", name);
   // Set running to true
@@ -74,8 +69,6 @@ void Program::run(bool telemetry) {
   // Run the program loop
   while (running) {
     float time = TimeNow();
-    // Update the components
-    this->update(time);
     // Write telemetry
     if (telemetry) {
       if ((time - lastTelemetry) > 0.15) {
@@ -88,7 +81,7 @@ void Program::run(bool telemetry) {
         this->telemetry();
       }
     }
-    // Run the program update function
+    // Run the program loop function
     this->loop();
   }
 }

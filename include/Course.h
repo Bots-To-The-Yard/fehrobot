@@ -28,7 +28,6 @@ class Course: public Component {
     void init();
     void stop();
     void telemetry();
-    void update(double time);
     /**
      * Gets the time left from RPS.
      * 
