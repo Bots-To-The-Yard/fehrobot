@@ -4,8 +4,12 @@ GITBINARY := git
 FEHURL := google.com
 FIRMWAREREPO := fehproteusfirmware
 
+ifeq ($(OS),Windows_NT)	
+	SHELL := CMD
+endif
+
 all:
-ifeq ($(OS),Windows_NT)
+ifeq ($(OS),Windows_NT)	
 # check for internet connection
 # if there's internet, check to see if FEHRobotController folder exists
 # if it does, remove it before cloning the repo
@@ -19,35 +23,30 @@ ifeq ($(OS),Windows_NT)
 		( if exist "$(FIRMWAREREPO)" \
 		( \
 			cd $(FIRMWAREREPO) && \
-			$(GITBINARY) reset --hard && \
+			$(GITBINARY) stash && \
 			$(GITBINARY) pull && \
 			cd .. \
 		) \
 		else \
 		( \
 			$(GITBINARY) config --global http.sslVerify false  && \
-			$(GITBINARY) clone https://code.osu.edu/fehelectronics/$(FIRMWAREREPO).git \
+			$(GITBINARY) clone https://code.osu.edu/fehelectronics/proteus_software/$(FIRMWAREREPO).git \
 		) \
 		) \
-	)
+	) 
 else
 # Mac/Linux
-	@ping -c 1 -W 1000 $(FEHURL) > /dev/null ; \
+	@ping -c 1 -W 1000 $(FEHURL) > NUL ; \
 	if [ "$$?" -ne 0 ]; then \
 		echo "Warning: No internet connection to redmine!"; \
 	else \
 		if [ -d "$(FIRMWAREREPO)" ]; then \
 			cd $(FIRMWAREREPO) ; \
-			$(GITBINARY) reset --hard && \
-			$(GITBINARY) pull && \
+			$(GITBINARY) stash ; \
+       		$(GITBINARY) pull ; \
        		cd .. ; \
 		else \
-       		$(GITBINARY) clone https://code.osu.edu/fehelectronics/$(FIRMWAREREPO).git ; \
-       		if [ -n "$(DEVBRANCH)" ]; then\
-       			cd $(FIRMWAREREPO) ; \
-       			$(GITBINARY) checkout -b $(DEVBRANCH) origin/$(DEVBRANCH) ; \
-       			cd .. ; \
-       		fi \
+       		$(GITBINARY) clone https://code.osu.edu/fehelectronics/proteus_software/$(FIRMWAREREPO).git ; \
 		fi \
 	fi \
 
